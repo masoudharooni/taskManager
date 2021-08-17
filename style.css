@@ -1,0 +1,269 @@
+@import url(https://fonts.googleapis.com/css?family=Dosis:300|Lato:300,400,600,700|Roboto+Condensed:300,700|Open+Sans+Condensed:300,600|Open+Sans:400,300,600,700|Maven+Pro:400,700);
+@import url("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+html {
+  background-image: url(http://www.ultraimg.com/images/2UeGfhZ.jpg);
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-smoothing: antialiased;
+}
+
+.page {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  left: 10%;
+  top: 10%;
+  background-color: rgba(255, 255, 255, 0.7);
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+}
+
+.pageHeader {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: #54b9cd;
+  color: White;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 5px 20px;
+  vertical-align: middle;
+}
+.pageHeader .title {
+  width: 40%;
+  float: left;
+  line-height: 40px;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.pageHeader .userPanel {
+  width: 40%;
+  float: right;
+}
+.pageHeader .userPanel i {
+  float: right;
+  line-height: 40px;
+  padding-right: 10px;
+}
+.pageHeader .userPanel .username {
+  float: right;
+  line-height: 40px;
+  padding: 0px 20px;
+  font-weight: 600;
+  font-size: 1.0em;
+}
+.pageHeader .userPanel img {
+  float: right;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  clear: both;
+  background-color: white;
+}
+.main .nav {
+  width: 200px;
+  height: 100%;
+  float: left;
+  background-color: rgba(227, 234, 235, 0.8);
+}
+.main .nav .searchbox {
+  width: 170px;
+  height: 30px;
+  line-height: 30px;
+  margin: 15px;
+  background-color: White;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+.main .nav .searchbox i {
+  display: inline-block;
+  color: #bbb;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 16px;
+}
+.main .nav .searchbox input {
+  display: inlin-block;
+  width: 120px;
+  background-color: White;
+  color: Black;
+  font-family: "Lato";
+  border: 0px;
+}
+.main .nav .menu {
+  width: 100%;
+  margin: 15px;
+  color: #555;
+}
+.main .nav .menu .title {
+  font-weight: 700;
+  font-size: 1.0em;
+  text-transform: uppercase;
+}
+.main .nav .menu ul {
+  padding-left: 0px;
+}
+.main .nav .menu ul li {
+  cursor: pointer;
+  list-style: none;
+  margin: 5px 0px;
+  padding: 5px 0px;
+  font-weight: 600;
+  margin-right: 30px;
+  padding-left: 10px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  transition: 0.25s all;
+}
+.main .nav .menu ul li.active {
+  color: #79BC46;
+}
+.main .nav .menu ul li:hover {
+  background-color: #999;
+}
+.main .nav .menu ul li i {
+  font-size: 1.4em;
+  margin-right: 10px;
+}
+.main .view {
+  position: relative;
+  margin-left: 200px;
+}
+.main .view .viewHeader {
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+  padding: 20px 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 1px solid #E0E0E0;
+}
+.main .view .viewHeader .title {
+  float: left;
+  font-size: 1.4em;
+  font-weight: 400;
+  padding: 0px;
+  color: #AAA;
+  margin-top: -18px;
+}
+.main .view .viewHeader .functions {
+  float: right;
+}
+.main .view .viewHeader .functions .button {
+  float: right;
+  height: 30px;
+  line-height: 30px;
+  background-color: #AAA;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  margin: 0px 5px;
+  padding: 0px 20px;
+  cursor: pointer;
+  color: White;
+  font-weight: 700;
+}
+.main .view .viewHeader .functions .button.active {
+  background-color: #54b9cd;
+}
+.main .view .viewHeader .functions .button.inverz {
+  background-color: inherit;
+  border: 1px solid #AAA;
+  width: 10px;
+  color: #AAA;
+  font-size: 1.3em;
+  padding-left: 10px;
+  padding-right: 16px;
+}
+.main .view .content {
+  position: absolute;
+  left: 0px;
+  top: 70px;
+  right: 0px;
+  bottom: 0px;
+  padding: 10px;
+}
+.main .view .content .list .title {
+  width: 100%;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #54b9cd;
+}
+.main .view .content .list ul {
+  width: 100%;
+  padding-left: 10px;
+  color: #777;
+}
+.main .view .content .list ul li {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  list-style: none;
+  border-top: 1px solid #AAA;
+}
+.main .view .content .list ul li.checked {
+  background-color: #F0F4F5;
+}
+.main .view .content .list ul li:last-child {
+  border-bottom: 1px solid #AAA;
+}
+.main .view .content .list ul li i {
+  float: left;
+  width: 30px;
+  height: 50px;
+  line-height: 50px;
+  margin-left: 10px;
+  font-size: 1.3em;
+}
+.main .view .content .list ul li span {
+  float: left;
+  font-weight: 600;
+}
+.main .view .content .list ul li .info {
+  float: right;
+}
+.main .view .content .list ul li .info span {
+  font-weight: 300;
+}
+.main .view .content .list ul li .info .button {
+  float: right;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #AAA;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  margin: 10px 10px;
+  text-align: center;
+  cursor: pointer;
+  color: White;
+  font-weight: 700;
+}
+.main .view .content .list ul li .info .button.green {
+  background-color: #85C157;
+}
+
+.clear {
+  clear: both;
+}
