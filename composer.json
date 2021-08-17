@@ -1,0 +1,16 @@
+{
+    "name": "masoudharooni/task-manager",
+    "description": "a simple task manager project",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "masoud harooni",
+            "email": "masoudharooni50@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "hekmatinasser/verta": "^1.12"
+    }
+}
