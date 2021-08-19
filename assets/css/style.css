@@ -2,6 +2,13 @@
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 html {
   background-image: url("http://www.patriotathome.org/wp-content/uploads/2016/11/blue-gradient-colors-gradient-blue-color-gradient-background-photoshop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+input {
+  outline: none;
 }
 
 body {
@@ -39,6 +46,7 @@ body {
   padding: 5px 20px;
   vertical-align: middle;
 }
+
 .pageHeader .title {
   width: 40%;
   float: left;
@@ -46,15 +54,18 @@ body {
   font-size: 1.5em;
   font-weight: 700;
 }
+
 .pageHeader .userPanel {
   width: 40%;
   float: right;
 }
+
 .pageHeader .userPanel i {
   float: right;
   line-height: 40px;
   padding-right: 10px;
 }
+
 .pageHeader .userPanel .username {
   float: right;
   line-height: 40px;
@@ -62,6 +73,7 @@ body {
   font-weight: 600;
   font-size: 1.0em;
 }
+
 .pageHeader .userPanel img {
   float: right;
   -moz-border-radius: 5px;
@@ -76,12 +88,14 @@ body {
   clear: both;
   background-color: white;
 }
+
 .main .nav {
   width: 200px;
   height: 100%;
   float: left;
   background-color: rgba(227, 234, 235, 0.8);
 }
+
 .main .nav .searchbox {
   width: 170px;
   height: 30px;
@@ -92,6 +106,7 @@ body {
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
+
 .main .nav .searchbox i {
   display: inline-block;
   color: #bbb;
@@ -99,6 +114,7 @@ body {
   margin-right: 5px;
   font-size: 16px;
 }
+
 .main .nav .searchbox input {
   display: inlin-block;
   width: 120px;
@@ -107,19 +123,24 @@ body {
   font-family: "Lato";
   border: 0px;
 }
+
 .main .nav .menu {
   width: 100%;
   margin: 15px;
   color: #555;
+  position: relative;
 }
+
 .main .nav .menu .title {
   font-weight: 700;
   font-size: 1.0em;
   text-transform: uppercase;
 }
+
 .main .nav .menu ul {
   padding-left: 0px;
 }
+
 .main .nav .menu ul li {
   cursor: pointer;
   list-style: none;
@@ -133,20 +154,25 @@ body {
   border-radius: 4px;
   transition: 0.25s all;
 }
+
 .main .nav .menu ul li.active {
   color: #79BC46;
 }
+
 .main .nav .menu ul li:hover {
   background-color: #999;
 }
+
 .main .nav .menu ul li i {
   font-size: 1.4em;
   margin-right: 10px;
 }
+
 .main .view {
   position: relative;
   margin-left: 200px;
 }
+
 .main .view .viewHeader {
   width: 100%;
   height: 70px;
@@ -157,6 +183,7 @@ body {
   box-sizing: border-box;
   border-bottom: 1px solid #E0E0E0;
 }
+
 .main .view .viewHeader .title {
   float: left;
   font-size: 1.4em;
@@ -165,9 +192,11 @@ body {
   color: #AAA;
   margin-top: -18px;
 }
+
 .main .view .viewHeader .functions {
   float: right;
 }
+
 .main .view .viewHeader .functions .button {
   float: right;
   height: 30px;
@@ -182,9 +211,11 @@ body {
   color: White;
   font-weight: 700;
 }
+
 .main .view .viewHeader .functions .button.active {
   background-color: #54b9cd;
 }
+
 .main .view .viewHeader .functions .button.inverz {
   background-color: inherit;
   border: 1px solid #AAA;
@@ -194,6 +225,7 @@ body {
   padding-left: 10px;
   padding-right: 16px;
 }
+
 .main .view .content {
   position: absolute;
   left: 0px;
@@ -202,6 +234,7 @@ body {
   bottom: 0px;
   padding: 10px;
 }
+
 .main .view .content .list .title {
   width: 100%;
   padding: 10px;
@@ -209,11 +242,13 @@ body {
   font-weight: 700;
   color: #54b9cd;
 }
+
 .main .view .content .list ul {
   width: 100%;
   padding-left: 10px;
   color: #777;
 }
+
 .main .view .content .list ul li {
   width: 100%;
   height: 50px;
@@ -221,12 +256,15 @@ body {
   list-style: none;
   border-top: 1px solid #AAA;
 }
+
 .main .view .content .list ul li.checked {
   background-color: #F0F4F5;
 }
+
 .main .view .content .list ul li:last-child {
   border-bottom: 1px solid #AAA;
 }
+
 .main .view .content .list ul li i {
   float: left;
   width: 30px;
@@ -235,16 +273,20 @@ body {
   margin-left: 10px;
   font-size: 1.3em;
 }
+
 .main .view .content .list ul li span {
   float: left;
   font-weight: 600;
 }
+
 .main .view .content .list ul li .info {
   float: right;
 }
+
 .main .view .content .list ul li .info span {
   font-weight: 300;
 }
+
 .main .view .content .list ul li .info .button {
   float: right;
   width: 100px;
@@ -260,10 +302,51 @@ body {
   color: White;
   font-weight: 700;
 }
+
 .main .view .content .list ul li .info .button.green {
   background-color: #85C157;
 }
 
 .clear {
   clear: both;
+}
+
+/* 
+button styles
+*/
+
+.button-folder {
+  margin: 12px;
+  padding: 10px;
+  background-color: #54b9cd;
+  border: none;
+  color: #Fff;
+  font-weight: bold;
+  font-size: 17px;
+  cursor: pointer;
+  box-shadow: 0 0 4px 1px #2f8394;
+}
+
+.button-folder:hover {
+  background-color: #45a2b4;
+}
+
+/* folders styles */
+
+.folders {
+  color: #2f8394;
+  text-decoration: none;
+}
+.menu .remove{
+  color: rgb(170, 0, 0);
+  position: absolute;
+  right: 30px;
+  font-size: 15px;
+}
+.menu .remove:hover{
+  color: rgb(93, 0, 0);
+}
+.menu ul li{
+  font-weight: bold;
+  font-size: 17px;
 }
