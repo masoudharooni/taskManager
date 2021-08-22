@@ -1,7 +1,8 @@
 <?php
-include "vendor/autoload.php";
-include "config.php";
-include "libs/helper.php";
+include "constants.php";
+include ROOT_PATH . "vendor/autoload.php";
+include ROOT_PATH . "bootstrap/config.php";
+include ROOT_PATH . "libs/helper.php";
 /** 
  * Connection to database with mysqli by $conn variable
  */
@@ -10,5 +11,4 @@ if ($conn->connect_errno) {
     diePage("Connection is not true , ERROR is : " . $conn->connect_error);
 }
 
-include "libs/functionsTask.php";
-include "constants.php";
+include ROOT_PATH . "libs/functionsTask.php";

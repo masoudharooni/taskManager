@@ -12,3 +12,23 @@ function dump($variable)
     echo "</pre>";
     die();
 }
+
+function isRequestAjax(): bool
+{
+    if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) and strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        return true;
+    }
+    return false;
+}
+
+function inportantText(string $string = null)
+{
+    echo "<span style='color:red;font-size:22px;'>";
+    echo $string;
+    echo "</span>";
+}
+
+function siteUrl($uri = "")
+{
+    return  BASE_URL . $uri;
+}

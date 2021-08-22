@@ -1,17 +1,36 @@
 <?php
 include "bootstrap/init.php";
-
 /**
- * delete folder
+ * ------------------------------------------delete folder------------------------------------------
  */
 if (isset($_GET['folder_delete_id']) and !empty(is_numeric($_GET['folder_delete_id']))) {
     deleteFolder($_GET['folder_delete_id']);
 }
-
-/**add a new folder */
-if (isset($_POST['newFolder']) and !empty(is_string($_POST['newFolder']))) {
-    addFolder($_POST['newFolder']);
+/**
+ * ------------------------------------------delete Task------------------------------------------
+ */
+if (isset($_GET['task_delete_id']) && !empty(is_numeric($_GET['task_delete_id']))) {
+    deleteTask($_GET['task_delete_id']);
 }
 
+/**
+ * ------------------------------------------Get folders------------------------------------------
+ */
 $folders = getFolders();
-include "views/tpl-index.php";
+$foldersCount = sizeof($folders);
+
+
+
+/**
+ * ------------------------------------------Get task------------------------------------------
+ */
+$tasks = getTasks();
+// dump($tasks);
+// if (!is_null(sizeof($tasks))) {
+//     $tasksCount = sizeof($tasks);
+// } else {
+//     $tasksCount = null;
+// }
+
+
+include ROOT_PATH . "views/tpl-index.php";

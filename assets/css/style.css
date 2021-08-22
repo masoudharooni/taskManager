@@ -89,11 +89,45 @@ body {
   background-color: white;
 }
 
+.taskBox {
+  overflow: auto;
+  height: 400px;
+}
+
+/*-----------------------------------------------------SCROLL BAR CUSTOMIZE-----------------------------------------------------*/
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #54b9cd;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1d8094;
+}
+
 .main .nav {
   width: 200px;
   height: 100%;
   float: left;
   background-color: rgba(227, 234, 235, 0.8);
+  display: block;
 }
 
 .main .nav .searchbox {
@@ -166,6 +200,16 @@ body {
 .main .nav .menu ul li i {
   font-size: 1.4em;
   margin-right: 10px;
+}
+
+i.fas.fa-trash-alt.removeIcon {
+  color: #c30000 !important;
+}
+
+.main .nav .menu ul li.active i {
+  font-size: 1.4em;
+  margin-right: 10px;
+  color: #79BC46;
 }
 
 .main .view {
@@ -258,7 +302,7 @@ body {
 }
 
 .main .view .content .list ul li.checked {
-  background-color: #F0F4F5;
+  background-color: #1c971c1a;
 }
 
 .main .view .content .list ul li:last-child {
@@ -279,12 +323,19 @@ body {
   font-weight: 600;
 }
 
+li.allFolder {
+  color: #2f8394;
+}
+
 .main .view .content .list ul li .info {
   float: right;
 }
 
 .main .view .content .list ul li .info span {
-  font-weight: 300;
+  font-weight: bold;
+  font-family: sans-serif;
+  margin-right: 3px;
+  font-size: 11px;
 }
 
 .main .view .content .list ul li .info .button {
@@ -333,20 +384,234 @@ button styles
 
 /* folders styles */
 
-.folders {
+.main .nav .menu ul li .folders {
   color: #2f8394;
   text-decoration: none;
 }
-.menu .remove{
+
+.main .nav .menu ul li.active .folders {
+  color: #79bc46;
+  text-decoration: none;
+}
+
+.menu .remove {
   color: rgb(170, 0, 0);
   position: absolute;
   right: 30px;
   font-size: 15px;
 }
-.menu .remove:hover{
+
+.menu .remove:hover {
   color: rgb(93, 0, 0);
 }
-.menu ul li{
+
+.menu ul li {
   font-weight: bold;
   font-size: 17px;
+}
+
+/*-------------------------------------------------------style for attribute-------------------------------------------------------*/
+
+#editId {
+  position: relative;
+}
+
+#editId[titles]:hover::after {
+  content: attr(titles);
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
+  color: #ffffff;
+  background-color: #2f8394;
+  width: 280px;
+  padding: 10px 20px;
+  border-radius: 30px 30px 30px 0;
+  z-index: 9999;
+}
+
+#remove[titles]:hover::after {
+  content: attr(titles);
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
+  color: #ffffff;
+  background-color: #d42020;
+  width: 280px;
+  padding: 10px 20px;
+  border-radius: 30px 30px 30px 0;
+  z-index: 999999;
+}
+
+.menu ul li span {
+  color: #2f8394;
+}
+
+/* --------------------------------------style to edit folder name modal-------------------------------------- */
+
+.modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(56, 139, 187, 0.7);
+  z-index: 999999999;
+  display: none;
+}
+
+.modal .modalMain {
+  width: 450px;
+  height: 250px;
+  background-color: #fff;
+  z-index: 999999;
+  border-radius: 10px;
+  margin: 150px auto;
+  position: relative;
+}
+
+.modal .modalMain .closeModalBtn {
+  background: none;
+  border: none;
+  color: red;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-size: 25px;
+}
+
+.clickable:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.modal .modalLable {
+  position: absolute;
+  top: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  width: 100%;
+}
+
+.modal .modalMain .modalInput {
+  width: 70%;
+  padding: 7px 20px;
+  border: 2px solid #2f8394;
+  border-radius: 7px;
+  margin-top: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+#modalSubmitAdd {
+  text-align: center;
+  margin-left: 20px;
+}
+
+.modal .modalSubmit {
+  position: absolute;
+  bottom: 10px;
+  left: 138px;
+}
+
+.main .view .viewHeader .functions .button.active:hover {
+  background-color: #3aa8be;
+}
+
+/* -------------------------------------- Remove Icon delete task -------------------------------------- */
+
+.removeTask {
+  color: rgb(163, 13, 13);
+  font-size: 13px;
+  vertical-align: -5px;
+}
+
+.removeTask:hover {
+  color: rgb(202, 18, 18);
+}
+
+#removeTask {
+  position: relative;
+}
+
+#removeTask[titles]:hover::after {
+  content: attr(titles);
+  position: absolute;
+  bottom: -10px;
+  right: 25px;
+  color: #ffffff;
+  background-color: #d42020;
+  width: 230px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 30px 30px 0px 30px;
+  z-index: 9999;
+}
+
+/*-------------------------------------- Drop Down for choose a folder for new task --------------------------------------  */
+
+select#chooseFolder {
+  position: absolute;
+  right: 70px;
+  bottom: 11px;
+  padding: 8px;
+  background-color: #0d6efd;
+  color: #fff;
+  font-family: sans-serif;
+  border: 1px solid #0d6efd;
+  outline: none;
+  cursor: pointer;
+}
+
+/*-------------------------------------- Fix The bug of UI page --------------------------------------  */
+
+.itSelfSearchBox {
+  border: 1px solid white;
+  background-color: #fff;
+}
+
+.notExist {
+  background-color: #54b9cd;
+  text-align: center;
+  font-size: 23px;
+  font-weight: bold;
+  line-height: 45px;
+  margin-top: 40px;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 0;
+}
+
+*::selection {
+  background-color: darkblue;
+  color: #fff;
+}
+
+.notExistFolder p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 35px;
+  line-height: 60px;
+  font-weight: bold;
+  color: #0099dc;
+  position: relative;
+  top: 55px;
+}
+
+.statusIcon {
+  cursor: pointer;
+}
+
+/*-------------------------------------- DONE AND UNDONE STYLES TASK --------------------------------------  */
+
+.fa-check-square {
+  color: rgb(0, 158, 0);
+}
+
+.fa-square {
+  color: #ff0000;
 }
