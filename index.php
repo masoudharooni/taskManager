@@ -1,5 +1,11 @@
 <?php
 include "bootstrap/init.php";
+
+if (!isLoggedIn()) {
+    // redirect to auth page
+    header("location:" . siteUrl("auth.php"));
+}
+
 /**
  * ------------------------------------------delete folder------------------------------------------
  */
@@ -25,12 +31,6 @@ $foldersCount = sizeof($folders);
  * ------------------------------------------Get task------------------------------------------
  */
 $tasks = getTasks();
-// dump($tasks);
-// if (!is_null(sizeof($tasks))) {
-//     $tasksCount = sizeof($tasks);
-// } else {
-//     $tasksCount = null;
-// }
 
 
 include ROOT_PATH . "views/tpl-index.php";

@@ -43,7 +43,7 @@
                                         } ?>">
                 <span data-folderId="<?= $value['id']; ?>" id="editId" class="editId" titles="For Edit Folder Name Click Here!"><i class="fa fa-folder"></i></span>
                 <a class="folders" href='<?= siteUrl("?folder_id=$value[id]") ?>'><?= $value['name']; ?></a>
-                <a id="remove" titles="For Delete This Folder Click Here!" class="remove" href='<?= siteUrl("?folder_delete_id=$value[id]"); ?>' onclick="return confirm('Are You Sure To Delete <?= $value['name']; ?> Folder ?');"><i class="fas fa-trash-alt removeIcon"></i></a>
+                <a id="remove" titles="For Delete This Folder Click Here!" class="remove" href='<?= siteUrl("?folder_delete_id=$value[id]"); ?>' onclick="return confirm('Are You Sure To Delete <?= $value['name']; ?> Folder ?')"><i class="fas fa-trash-alt removeIcon"></i></a>
               </li>
             <?php endforeach; ?>
           </ul>
@@ -82,10 +82,11 @@
               <ul>
                 <?php if (isset($tasks) and !is_null($tasks)) :
                   foreach ($tasks as $value) : ?>
-                    <li class="<?php echo $status = ($value['status'] == 1 ? "checked" : null); ?>"><i taskId="<?= $value['id']; ?>" class="<?php echo $status = ($value['status'] == 1 ? "fas fa-check-square" : "far fa-square"); ?> statusIcon"></i><span><?= $value['title']; ?></span>
+                    <li class="<?php echo $status = ($value['status'] == 1 ? "checked" : null); ?>"><i id="statusDone" titles="For Change Status This Task Clikc Here" taskId="<?= $value['id']; ?>" class="<?php echo $status = ($value['status'] == 1 ? "fas fa-check-square" : "far fa-square"); ?> statusIcon"></i><span><?= $value['title']; ?></span>
                       <div class="info">
                         <span>Created at : <?= $value['created_at']; ?></span>
                         <a id="removeTask" titles="For Delete This Task Click Here!" class="removeTask" href='<?= siteUrl("?task_delete_id=$value[id]") ?>' onclick="return confirm('Are You Sure To Delete <?= $value['title']; ?> Task ?')"><i class="fas fa-trash-alt"></i></a>
+                        <i style="color: #006938; font-size: 17px; vertical-align: -7px;" titles="For Edit This Task Click Here!" data-taskEditId="<?= $value['id']; ?>" id="editTask" class="fas fa-edit removeTask"></i>
                       </div>
                     </li>
                   <?php
@@ -142,11 +143,30 @@
     <?php } ?>
   </div>
 
+
+  <div id="ohsnap"></div>
+
+  <!--------------------------------------------Modal For Update a Task------------------------------------------ -->
+
+  <div id="editTaskModal" class="modal">
+    <div class="modalMain">
+      <button class="closeModalBtn clickable"><i class="fas fa-times"></i></button>
+      <label class="modalLable" for="editFoderName">Write a New Name <br>For This Folder :
+        <br>
+        <input type="text" id="modalInputTaskEdit" class="modalInput" placeholder="Write a Name . . . ">
+
+      </label>
+      <button id="modalSubmitTaskEdit" type="button" class="btn btn-primary modalSubmit">Update Task Name</button>
+    </div>
+  </div>
+
+
   <!------------------------------------------The External Dependency-------------------------------------------->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="assets/js/script.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+  <script src="../assets/alert-library/ohsnap.js"></script>
   <!---------------------------------------jQuery Codes is in script.js--------------------------------------->
   <script src="<?= ROOT_PATH . 'assets/js/script.js' ?>"></script>
 
@@ -167,10 +187,13 @@
             folderId: <?= $_GET['folder_id']; ?>
           },
           success: function(respons) {
-            alert(respons);
+            // alert(respons);
+            swal("Good!", respons, "success");
           }
         });
-        location.reload();
+        setTimeout(function() {
+          location.reload();
+        }, 1500);
       });
     });
   </script>

@@ -1,8 +1,4 @@
 <?php
-function getCurruntUserId()
-{
-    return 1;
-}
 
 /**----------------------------------------------------------------------------Folders Function---------------------------------------------------------------------------- */
 
@@ -57,7 +53,7 @@ function deleteFolder(int $folderId): bool
 
 /**----------------------------------------------------------------------------Update Folder Function---------------------------------------------------------------------------- */
 
-function updateFolder(string $folderName, int $folderId)
+function updateFolder(string $folderName, int $folderId): bool
 {
     global $conn;
     $sql = "UPDATE folders SET name = ? WHERE id = ?";
@@ -166,6 +162,23 @@ function statusTask($taskId): bool
 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("iii", $statusTaskUpdade, $taskId, $currentUserId);
+    if ($stmt->execute()) {
+        return true;
+    }
+    return false;
+}
+
+
+
+/**----------------------------------------------------------------------------Done and UnDone Task Function----------------------------------------------------------------------------*/
+
+function updateTask(string $taskName, int $taskId): bool
+{
+    global $conn;
+    $currentUserId = getCurruntUserId();
+    $sql = "UPDATE tasks SET title = ? WHERE id = ? AND user_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sii", $taskName, $taskId, $currentUserId);
     if ($stmt->execute()) {
         return true;
     }

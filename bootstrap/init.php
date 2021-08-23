@@ -11,4 +11,6 @@ if ($conn->connect_errno) {
     diePage("Connection is not true , ERROR is : " . $conn->connect_error);
 }
 
+include ROOT_PATH . "libs/lib-auth.php";
+
 include ROOT_PATH . "libs/functionsTask.php";

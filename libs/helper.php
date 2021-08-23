@@ -5,6 +5,25 @@ function diePage($msg)
     die();
 }
 
+function massage($msg)
+{
+    echo "<div style='color: #fff;
+    font-size: 25px; 
+    font-weigh: bold; 
+    margin: auto;
+    text-align:center; 
+    background: linear-gradient(135deg, #F5515F, #A1051D);
+    border-radius: 25px; 
+    padding: 20px 10px; 
+    line-height: 60px; 
+    font-family: sans-serif;
+    position: absolute;
+    top: 720px; 
+    left:10%;
+    z-index:9999;
+    width: 80%;'> $msg </div>";
+}
+
 function dump($variable)
 {
     echo "<pre>";
@@ -32,3 +51,7 @@ function siteUrl($uri = "")
 {
     return  BASE_URL . $uri;
 }
+
+
+
+

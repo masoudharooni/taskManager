@@ -16,10 +16,12 @@ $(document).ready(function () {
                 nameFolder: $("#createFolder").val()
             },
             success: function (respons) {
-                alert(respons);
+                swal("Good!", respons, "success");
             }
         });
-        location.reload();
+        setTimeout(function () {
+            location.reload();
+        }, 1500);
     });
 });
 
@@ -107,12 +109,60 @@ $(document).ready(function () {
                 folderId: folderIdNow
             },
             success: function (respons) {
-                alert(respons);
-                location.reload();
+                swal("Good!", respons, "success");
+            }
+        });
+        setTimeout(function () {
+            location.reload();
+        }, 1500);
+    });
+
+});
+
+
+/**
+*---------------------------------------------------------------ajax update Task name---------------------------------------------------------------
+*/
+
+
+$(document).ready(function () {
+    var task_id;
+    $("i#editTask").click(function () {
+        task_id = $(this).attr("data-taskEditId");
+        $("#editTaskModal").fadeIn(1000);
+    });
+
+    $(".closeModalBtn").click(function () {
+        $("#editTaskModal").fadeOut(1000);
+    });
+
+    $("#modalSubmitTaskEdit").click(function () {
+        var inputValue = $("#modalInputTaskEdit").val();
+        $.ajax({
+            url: "process/ajaxHandler.php",
+            method: "post",
+            data: {
+                action: "updateTask",
+                newTaskName: inputValue,
+                taskId: task_id
+            },
+            success: function (respons) {
+                if (respons == 1) {
+                    swal("Good!", "This Folder Updated !", "success");
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
+                } else {
+                    alert(respons);
+                }
             }
         });
     });
 
 });
 
+
+/**
+     *---------------------------------------------------------------SWEETALERT---------------------------------------------------------------
+     */
 

@@ -302,7 +302,7 @@ i.fas.fa-trash-alt.removeIcon {
 }
 
 .main .view .content .list ul li.checked {
-  background-color: #1c971c1a;
+  background-color: #0950091a;
 }
 
 .main .view .content .list ul li:last-child {
@@ -429,6 +429,23 @@ button styles
   z-index: 9999;
 }
 
+#statusDone {
+  position: relative;
+}
+
+#statusDone[titles]:hover::after {
+  content: attr(titles);
+  position: absolute;
+  bottom: 35px;
+  left: 15px;
+  color: #ffffff;
+  background-color: #006938;
+  width: 380px;
+  padding: 0 0 0 20px;
+  border-radius: 30px 30px 30px 0;
+  z-index: 9999;
+}
+
 #remove[titles]:hover::after {
   content: attr(titles);
   position: absolute;
@@ -541,13 +558,38 @@ button styles
   content: attr(titles);
   position: absolute;
   bottom: -10px;
-  right: 25px;
+  right: 65px;
   color: #ffffff;
   background-color: #d42020;
   width: 230px;
+  font-size: 15px;
   font-weight: bold;
   text-align: center;
   border-radius: 30px 30px 0px 30px;
+  z-index: 9999;
+}
+
+#editTask {
+  position: relative;
+}
+
+#editTask:hover {
+  cursor: pointer;
+  color: #002715;
+}
+
+#editTask[titles]:hover::after {
+  content: attr(titles);
+  position: absolute;
+  bottom: 35px;
+  right: 30px;
+  color: #ffffff;
+  background-color: #006938;
+  width: 230px;
+  /* font-weight: bold; */
+  text-align: center;
+  border-radius: 30px 30px 0px 30px;
+  font-size: 15px;
   z-index: 9999;
 }
 
@@ -614,4 +656,49 @@ select#chooseFolder {
 
 .fa-square {
   color: #ff0000;
+}
+
+/*-------------------------------------- alert styles --------------------------------------  */
+
+/* ALERTS */
+
+/* inspired by Twitter Bootstrap */
+
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #eed3d7;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 0px;
+  right: 21px;
+  /* Each alert has its own width */
+  float: right;
+  clear: right;
+  background-color: white;
+}
+
+.alert-red {
+  color: white;
+  background-color: #DA4453;
+}
+
+.alert-green {
+  color: white;
+  background-color: #37BC9B;
+}
+
+.alert-blue {
+  color: white;
+  background-color: #4A89DC;
+}
+
+.alert-yellow {
+  color: white;
+  background-color: #F6BB42;
+}
+
+.alert-orange {
+  color: white;
+  background-color: #E9573F;
 }
