@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>masoud | TODO</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="shortcut icon" href="assets/img/favIcon2.png" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Poppins:600" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -16,7 +17,7 @@
   <!-- partial:index.partial.html -->
   <div class="page">
     <div class="pageHeader">
-      <div class="title">Dashboard</div>
+      <div class="title"> <img src="assets/img/favIcon2.png" alt="us Icon" width="40px" style="vertical-align: -12px; margin-right: 5px;"> Dashboard</div>
       <div class="userPanel"><span class="username"><a href="<?= siteUrl("?logout=1") ?>"><i style="position: relative;left: 10px; font-size: 27px; vertical-align: -10px; color:#fff" title="LogOut" class="fas fa-sign-out-alt clickable"></i></a><?= $_SESSION['login']['username'] ?? "Unknown" ?> </span></div>
     </div>
     <div class="main">
