@@ -47,3 +47,5 @@ if (isset($_POST['action']) and !empty($_POST['action']) and $_POST['action'] ==
 if (isset($_POST['action']) and !empty($_POST['action']) and $_POST['action'] == "updateTask" and isset($_POST['taskId']) and !empty(is_numeric($_POST['taskId'])) and isset($_POST['newTaskName'])) {
     echo updateTask($_POST['newTaskName'], $_POST['taskId']);
 }
+
+

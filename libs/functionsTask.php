@@ -67,6 +67,7 @@ function updateFolder(string $folderName, int $folderId): bool
 
 /**----------------------------------------------------------------------------Task Function---------------------------------------------------------------------------- */
 
+
 /**----------------------------------------------------------------------------Get Task Function----------------------------------------------------------------------------*/
 
 function getTasks($taskId = null)
@@ -80,13 +81,21 @@ function getTasks($taskId = null)
         $folderCondition = " AND folder_id = ?";
     }
 
+    $sortBy = $_GET['sortBy'] ?? null;
+    $ascOrDesc = "DESC";
+    $sort = "ORDER BY created_at {$ascOrDesc}";
+    if (isset($sortBy) and is_string($sortBy) and !is_null($sortBy)) {
+        $sort = "ORDER BY created_at {$sortBy}";
+    }
+
     $taskCondition = null;
 
     if (isset($taskId) and !is_null($taskId)) {
         $taskCondition = "AND id = ?";
     }
 
-    $sql = "SELECT id, user_id,folder_id, title , status, created_at FROM tasks WHERE user_id = ?$folderCondition $taskCondition";
+
+    $sql = "SELECT id, user_id,folder_id, title , status, created_at FROM tasks WHERE user_id = ?$folderCondition $taskCondition $sort";
     $stmt = $conn->prepare($sql);
 
 

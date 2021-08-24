@@ -6,9 +6,10 @@
   <title>masoud | TODO</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Poppins:600" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 </head>
 
 <body>
@@ -16,7 +17,7 @@
   <div class="page">
     <div class="pageHeader">
       <div class="title">Dashboard</div>
-      <div class="userPanel"><span class="username"><a href="<?= siteUrl("?logout=1") ?>"><i style="position: relative;left: 10px; font-size: 27px; vertical-align: -10px; color:#fff" class="fas fa-sign-out-alt clickable"></i></a><?= $_SESSION['login']['username'] ?? "Unknown" ?> </span></div>
+      <div class="userPanel"><span class="username"><a href="<?= siteUrl("?logout=1") ?>"><i style="position: relative;left: 10px; font-size: 27px; vertical-align: -10px; color:#fff" title="LogOut" class="fas fa-sign-out-alt clickable"></i></a><?= $_SESSION['login']['username'] ?? "Unknown" ?> </span></div>
     </div>
     <div class="main">
       <div class="nav">
@@ -78,8 +79,22 @@
           <div class="title">Manage Tasks</div>
           <div class="functions">
             <div id="addTask" class="button active">Add New Task</div>
-            <div class="button">Completed</div>
+
+
+            <!---------------------------------------- radio button for sort tasks ---------------------------------------->
+            <div class="dropdown">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                Sort Task
+              </a>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="<?= siteUrl("?sortBy=ASC") ?>">Ascending</a></li>
+                <li><a class="dropdown-item" href="<?= siteUrl("?sortBy=DESC") ?>">Descending</a></li>
+              </ul>
+            </div>
+
           </div>
+
         </div>
         <div class="content">
           <div class="list">
@@ -174,6 +189,7 @@
   <script src="assets/js/script.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
   <script src="../assets/alert-library/ohsnap.js"></script>
   <!---------------------------------------jQuery Codes is in script.js--------------------------------------->
   <script src="<?= ROOT_PATH . 'assets/js/script.js' ?>"></script>
