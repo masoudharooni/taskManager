@@ -157,8 +157,29 @@ $(document).ready(function () {
                 }
             }
         });
+
     });
 
 });
 
 
+/**
+*---------------------------------------------------------------ajax for live search task name---------------------------------------------------------------
+*/
+
+$(document).ready(function () {
+    $("input#searchTask").keyup(function () {
+        var inputValue = $("input#searchTask").val();
+        $.ajax({
+            url: "process/ajaxHandler.php",
+            method: "post",
+            data: {
+                action: "searchTask",
+                taskName: inputValue
+            },
+            success: function (respons) {
+                $("#resultSearch").html(respons);
+            }
+        });
+    });
+});

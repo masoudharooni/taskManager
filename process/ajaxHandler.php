@@ -48,4 +48,15 @@ if (isset($_POST['action']) and !empty($_POST['action']) and $_POST['action'] ==
     echo updateTask($_POST['newTaskName'], $_POST['taskId']);
 }
 
+/**----------------------------------Search Tasks Name----------------------------------*/
 
+if (isset($_POST['action']) and !empty($_POST['action']) and $_POST['action'] == "searchTask" and !empty($_POST['taskName'])) {
+    $listOfName = searchTask($_POST['taskName']);
+    if (!is_null($listOfName)) {
+        foreach ($listOfName as $value) {
+            echo "<a href='?folder_id={$value['folderId']}'>{$value['taskName']}</a>";
+        }
+    } else {
+        echo "<a href='' class='notExistTask'>Not Exist!</a>";
+    }
+}

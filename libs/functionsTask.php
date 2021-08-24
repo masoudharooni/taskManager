@@ -193,3 +193,26 @@ function updateTask(string $taskName, int $taskId): bool
     }
     return false;
 }
+
+/**----------------------------------------------------------------------------Done and UnDone Task Function----------------------------------------------------------------------------*/
+
+function searchTask(string $char)
+{
+    global $conn;
+    $currentUserId = getCurruntUserId();
+    $replace = "%{$char}%";
+    $sql = "SELECT title , folder_id FROM tasks WHERE title LIKE ? AND user_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("si", $replace, $currentUserId);
+    $stmt->bind_result($title, $folder_id);
+    $stmt->execute();
+    $counter = 0;
+    while ($stmt->fetch()) {
+        $listOfName[$counter] = [
+            'taskName' => $title ,
+            'folderId' => $folder_id 
+        ];
+        $counter++;
+    }
+    return $listOfName ?? null;
+}

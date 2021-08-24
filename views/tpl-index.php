@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>masoud | TODO</title>
+  <title>MH | TODO</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="shortcut icon" href="assets/img/favIcon2.png" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Poppins:600" rel="stylesheet">
@@ -17,15 +17,16 @@
   <!-- partial:index.partial.html -->
   <div class="page">
     <div class="pageHeader">
-      <div class="title"> <img src="assets/img/favIcon2.png" alt="us Icon" width="40px" style="vertical-align: -12px; margin-right: 5px;"> Dashboard</div>
+      <div class="title"> <img src="assets/img/favIcon2.png" alt="us Icon" width="40px" style="vertical-align: -12px; margin-right: 5px;"> MH | TODO</div>
       <div class="userPanel"><span class="username"><a href="<?= siteUrl("?logout=1") ?>"><i style="position: relative;left: 10px; font-size: 27px; vertical-align: -10px; color:#fff" title="LogOut" class="fas fa-sign-out-alt clickable"></i></a><?= $_SESSION['login']['username'] ?? "Unknown" ?> </span></div>
     </div>
     <div class="main">
       <div class="nav">
         <div class="searchbox">
           <div class="itSelfSearchBox"><i class="fa fa-search"></i>
-            <input type="search" placeholder="Search" />
+            <input id="searchTask" type="text" placeholder="Search" />
           </div>
+          <div id="resultSearch"></div>
         </div>
         <div class="menu">
           <div class="title">List Of Folders</div>

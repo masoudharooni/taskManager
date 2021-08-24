@@ -179,13 +179,6 @@ body {
   position: relative;
 }
 
-.main .nav .menu .title {
-  font-family: sans-serif;
-  font-weight: 700;
-  font-size: 1.0em;
-  text-transform: uppercase;
-}
-
 .main .nav .menu ul {
   padding-left: 0px;
 }
@@ -671,7 +664,7 @@ button styles
 }
 
 *::selection {
-  background-color: darkblue;
+  background-color: #ff5722;
   color: #fff;
 }
 
@@ -769,4 +762,39 @@ button styles
 
 .dropdown-item:hover {
   background-color: rgb(73, 73, 73) !important;
+}
+
+/*-------------------------------------- STYLE FOR RESULT SEARCH BOX--------------------------------------  */
+
+#resultSearch {
+  display: block;
+  box-sizing: border-box;
+  background-color: #fff;
+  text-align: center;
+  z-index: 99999;
+  position: relative;
+  font-family: sans-serif;
+}
+
+#resultSearch a {
+  display: block;
+  padding: 5px 0;
+  color: inherit;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+
+#resultSearch a.notExistTask {
+  color: #f44336;
+}
+
+#resultSearch a:hover {
+  background-color: rgba(216, 112, 147, 0.061);
+}
+
+.main .nav .menu .title {
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: 1.0em;
+  text-transform: uppercase;
 }
