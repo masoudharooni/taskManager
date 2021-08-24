@@ -68,7 +68,7 @@
 
           <button id="btnFolder" class="button-folder" <?php if ($foldersCount >= 5) {
                                                           echo "disabled";
-                                                        } ?>>Create a Foder</button>
+                                                        } ?>>Create Folder</button>
 
         </div>
 
