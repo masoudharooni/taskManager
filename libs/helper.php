@@ -12,7 +12,7 @@ function massage($msg)
     font-weigh: bold; 
     margin: auto;
     text-align:center; 
-    background: linear-gradient(135deg, #F5515F, #A1051D);
+    background: linear-gradient(135deg,#79CBCA,#E684AE);
     border-radius: 25px; 
     padding: 20px 10px; 
     line-height: 60px; 
@@ -51,7 +51,3 @@ function siteUrl($uri = "")
 {
     return  BASE_URL . $uri;
 }
-
-
-
-

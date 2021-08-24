@@ -16,7 +16,7 @@
   <div class="page">
     <div class="pageHeader">
       <div class="title">Dashboard</div>
-      <div class="userPanel"><i class="fa fa-chevron-down"></i><span class="username">John Doe </span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQEZrATmgHOi5ls0YCCQBTkocia_atSw0X-Q&usqp=CAU" width="40" height="40" /></div>
+      <div class="userPanel"><span class="username"><a href="<?= siteUrl("?logout=1") ?>"><i style="position: relative;left: 10px; font-size: 27px; vertical-align: -10px; color:#fff" class="fas fa-sign-out-alt clickable"></i></a><?= $_SESSION['login']['username'] ?? "Unknown" ?> </span></div>
     </div>
     <div class="main">
       <div class="nav">
@@ -37,15 +37,23 @@
             <!----------------------------------------------------------------------Show Folders---------------------------------------------------------------------->
 
             <?php
-            foreach ($folders as $value) : ?>
-              <li class="folderItemName <?php if (isset($_GET['folder_id']) and $_GET['folder_id'] == $value['id']) {
-                                          echo "active";
-                                        } ?>">
-                <span data-folderId="<?= $value['id']; ?>" id="editId" class="editId" titles="For Edit Folder Name Click Here!"><i class="fa fa-folder"></i></span>
-                <a class="folders" href='<?= siteUrl("?folder_id=$value[id]") ?>'><?= $value['name']; ?></a>
-                <a id="remove" titles="For Delete This Folder Click Here!" class="remove" href='<?= siteUrl("?folder_delete_id=$value[id]"); ?>' onclick="return confirm('Are You Sure To Delete <?= $value['name']; ?> Folder ?')"><i class="fas fa-trash-alt removeIcon"></i></a>
-              </li>
-            <?php endforeach; ?>
+
+            foreach ($folders as $value) :
+              if (!is_null($value)) {
+            ?>
+                <li class="folderItemName <?php if (isset($_GET['folder_id']) and $_GET['folder_id'] == $value['id']) {
+                                            echo "active";
+                                          }
+
+                                          ?>">
+                  <span data-folderId="<?= $value['id']; ?>" id="editId" class="editId" titles="For Edit Folder Name Click Here!"><i class="fa fa-folder"></i></span>
+                  <a class="folders" href='<?= siteUrl("?folder_id=$value[id]") ?>'><?= $value['name'] ?></a>
+                  <a id="remove" titles="For Delete This Folder Click Here!" class="remove" href='<?= siteUrl("?folder_delete_id=$value[id]"); ?>' onclick="return confirm('Are You Sure To Delete <?= $value['name']; ?> Folder ?')"><i class="fas fa-trash-alt removeIcon"></i></a>
+                </li>
+            <?php
+              }
+            endforeach;
+            ?>
           </ul>
 
         </div>

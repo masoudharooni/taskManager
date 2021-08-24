@@ -1,6 +1,10 @@
 <?php
 include "bootstrap/init.php";
 
+if (isset($_GET['logout'])) {
+    logout();
+}
+
 if (!isLoggedIn()) {
     // redirect to auth page
     header("location:" . siteUrl("auth.php"));

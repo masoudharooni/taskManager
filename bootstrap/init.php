@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "constants.php";
 include ROOT_PATH . "vendor/autoload.php";
 include ROOT_PATH . "bootstrap/config.php";

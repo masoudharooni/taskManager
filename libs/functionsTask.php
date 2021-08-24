@@ -19,7 +19,7 @@ function getFolders()
         $folderData[$counter] = ["id" => $id, "user_id" => $user_id, "name" => $name, "created_at" => $created_at];
         $counter++;
     }
-    return $folderData;
+    return $folderData ?? $replace = [null];
 }
 
 /**----------------------------------------------------------------------------Add Folder Function---------------------------------------------------------------------------- */

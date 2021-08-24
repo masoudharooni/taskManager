@@ -4,19 +4,72 @@
 
 function getCurruntUserId()
 {
-    return 1;
+    return getLoggedInUser()['id'] ?? 0;
 }
 
-/**----------------------------------------------------------------------------Logged in function---------------------------------------------------------------------------- */
+/**----------------------------------------------------------------------------Is Logged in function---------------------------------------------------------------------------- */
 
 function isLoggedIn()
 {
-    return false;
+    return $_SESSION['login'] ?? false;
 }
+
+/**----------------------------------------------------------------------------Get Logged in uder function---------------------------------------------------------------------------- */
+
+function getLoggedInUser()
+{
+    return $_SESSION['login'] ?? null;
+}
+
+/**----------------------------------------------------------------------------Get User By Email function---------------------------------------------------------------------------- */
+
+function getUserByEmail(string $email)
+{
+    global $conn;
+    $sql = "SELECT id , username , email , password , creat_at FROM users WHERE email LIKE ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->bind_result($id, $username, $emailNow, $password, $created_at);
+    $stmt->execute();
+    $stmt->fetch();
+    $result = [
+        'id' => $id,
+        'username' => $username,
+        'email' => $emailNow,
+        'password' => $password,
+        'created_at' => $created_at,
+        'image' => "https://www.gravatar.com/avatar/" . md5(strtolower(trim($emailNow)))
+    ];
+
+    if (!is_null($result['id'])) {
+        return $result;
+    }
+    return null;
+}
+
+/**----------------------------------------------------------------------------Logout function---------------------------------------------------------------------------- */
+
+function logout()
+{
+    unset($_SESSION['login']);
+}
+
+/**----------------------------------------------------------------------------Login function---------------------------------------------------------------------------- */
 
 function login(string $email, string $password)
 {
-    return 1;
+    $user = getUserByEmail($email);
+    #Cechk email exist
+    if (is_null($user)) {
+        return false;
+    }
+    #Check The Password
+    if (password_verify($password, $user['password'])) {
+        #login true
+        $_SESSION['login'] = $user;
+        return true;
+    }
+    return false;
 }
 
 
