@@ -19,7 +19,8 @@
   <div class="page">
     <div class="pageHeader">
       <div class="title"> <img src="assets/img/favIcon2.png" alt="us Icon" width="40px" style="vertical-align: -12px; margin-right: 5px;"> MH | TODO</div>
-      <div class="userPanel"><span class="username"><a href="<?= siteUrl("?logout=1") ?>"><i style="position: relative;left: 10px; font-size: 27px; vertical-align: -10px; color:#fff" title="LogOut" class="fas fa-sign-out-alt clickable"></i></a><?= $_SESSION['login']['username'] ?? "Unknown" ?> </span></div>
+      <div class="userPanel"><span class="username"><a href="<?= siteUrl("?logout=1") ?>"><i style="position: relative;left: 10px; font-size: 27px; vertical-align: -10px; color:#fff" title="LogOut" class="fas fa-sign-out-alt clickable"></i></a><?= $_SESSION['login']['username'] ?? "Unknown" ?>
+        </span></div>
     </div>
     <div class="main">
       <div class="nav">
@@ -75,6 +76,7 @@
 
         </div>
 
+        <div class="numOfUnDoneTask">unDone Tasks: </div>
 
       </div>
       <div class="view">
@@ -127,33 +129,34 @@
 
             </div>
 
-            <!-------------------------PAGINATION HTML CODE------------------------->
-            <nav aria-label="Page navigation example" id="navPag">
-              <ul class="pagination">
-                <li class="page-item">
-                  <a class="page-link" href="<?= siteUrl() ?>" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="<?= siteUrl("?page=1") ?>">1</a></li>
-                <li class="page-item"><a class="page-link" href="<?= siteUrl("?page=2") ?>">2</a></li>
-                <li class="page-item"><a class="page-link" href="<?= siteUrl("?page=3") ?>">3</a></li>
-                <li class="page-item"><a class="page-link" href="<?= siteUrl("?page=4") ?>">4</a></li>
-                <li class="page-item"><a class="page-link" href="<?= siteUrl("?page=5") ?>">5</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="<?= siteUrl() ?>" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <!-------------------------PAGINATION HTML CODE------------------------->
 
           </div>
         </div>
       </div>
+      <!-------------------------PAGINATION HTML CODE------------------------->
+      <nav aria-label="Page navigation example" id="navPag">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="<?= siteUrl() ?>" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="<?= siteUrl("?page=1") ?>">1</a></li>
+          <li class="page-item"><a class="page-link" href="<?= siteUrl("?page=2") ?>">2</a></li>
+          <li class="page-item"><a class="page-link" href="<?= siteUrl("?page=3") ?>">3</a></li>
+          <li class="page-item"><a class="page-link" href="<?= siteUrl("?page=4") ?>">4</a></li>
+          <li class="page-item"><a class="page-link" href="<?= siteUrl("?page=5") ?>">5</a></li>
+          <li class="page-item">
+            <a class="page-link" href="<?= siteUrl() ?>" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-------------------------PAGINATION HTML CODE------------------------->
+
     </div>
   </div>
 
@@ -219,8 +222,10 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="assets/js/script.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+  </script>
   <script src="../assets/alert-library/ohsnap.js"></script>
   <!---------------------------------------jQuery Codes is in script.js--------------------------------------->
   <script src="<?= ROOT_PATH . 'assets/js/script.js' ?>"></script>

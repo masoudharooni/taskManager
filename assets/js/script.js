@@ -184,3 +184,24 @@ $(document).ready(function () {
     });
 });
 
+/**
+*---------------------------------------------------------------ajax for Number of un done tasks---------------------------------------------------------------
+*/
+
+$(document).ready(function () {
+    $.ajax({
+        url: "process/ajaxHandler.php",
+        method: "post",
+        data: {
+            action: "NoberOfUnDoneTasks"
+        },
+        success: function (respons) {
+            if (respons == 0) {
+                $("div.numOfUnDoneTask").append(respons + " " + "<i style='font-size:40px;vertical-align:-8px;position:relative;left:7px' class='fas fa-grin-hearts'></i>").css("background-color" , "green");
+            }else{
+            $("div.numOfUnDoneTask").append(respons);
+            }
+            // alert(respons);
+        }
+    });
+});

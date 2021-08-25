@@ -221,3 +221,19 @@ function searchTask(string $char)
     }
     return $listOfName ?? null;
 }
+
+/**----------------------------------------------------------------------------Done and UnDone Task Function----------------------------------------------------------------------------*/
+
+function countUnDoneTask(): int
+{
+    global $conn;
+    $currentUserId = getCurruntUserId();
+    $sql = "SELECT COUNT(status) AS countOfUnDoneTask FROM tasks WHERE status LIKE 0 AND user_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $currentUserId);
+    $stmt->bind_result($countOfUnDoneTask);
+    $stmt->execute();
+    if ($stmt->fetch()) {
+        return $countOfUnDoneTask ?? 0;
+    }
+}

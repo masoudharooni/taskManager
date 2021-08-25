@@ -60,3 +60,9 @@ if (isset($_POST['action']) and !empty($_POST['action']) and $_POST['action'] ==
         echo "<a href='' class='notExistTask'>Not Exist!</a>";
     }
 }
+
+/**----------------------------------Number of un done Tasks----------------------------------*/
+
+if (isset($_POST['action']) and !is_null($_POST['action']) and $_POST['action'] == "NoberOfUnDoneTasks") {
+    echo countUnDoneTask();
+}
