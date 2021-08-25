@@ -7,10 +7,11 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="shortcut icon" href="assets/img/favIcon2.png" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Poppins:600" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
 </head>
 
 <body>
@@ -83,7 +84,7 @@
             <div id="addTask" class="button active">Add New Task</div>
 
 
-            <!---------------------------------------- radio button for sort tasks ---------------------------------------->
+            <!---------------------------------------- sort tasks ---------------------------------------->
             <div class="dropdown">
               <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                 Sort Task
@@ -104,7 +105,7 @@
 
             <!-------------------------------------------------Show Tasks------------------------------------------------->
             <div class="taskBox">
-              <ul>
+              <ul class="ulTasks">
                 <?php if (isset($tasks) and !is_null($tasks)) :
                   foreach ($tasks as $value) : ?>
                     <li class="<?php echo $status = ($value['status'] == 1 ? "checked" : null); ?>"><i id="statusDone" titles="For Change Status This Task Clikc Here" taskId="<?= $value['id']; ?>" class="<?php echo $status = ($value['status'] == 1 ? "fas fa-check-square" : "far fa-square"); ?> statusIcon"></i><span><?= $value['title']; ?></span>
@@ -118,10 +119,38 @@
                   endforeach;
                 else :
                   ?>
-                  <div class="notExist">There Is Not Any Task <br> Inside This Folder!</div>
+                  <div class="notExist">There Is Not Any Task <br> Inside This Page!</div>
                 <?php endif; ?>
               </ul>
+
+
+
             </div>
+
+            <!-------------------------PAGINATION HTML CODE------------------------->
+            <nav aria-label="Page navigation example" id="navPag">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="<?= siteUrl() ?>" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="<?= siteUrl("?page=1") ?>">1</a></li>
+                <li class="page-item"><a class="page-link" href="<?= siteUrl("?page=2") ?>">2</a></li>
+                <li class="page-item"><a class="page-link" href="<?= siteUrl("?page=3") ?>">3</a></li>
+                <li class="page-item"><a class="page-link" href="<?= siteUrl("?page=4") ?>">4</a></li>
+                <li class="page-item"><a class="page-link" href="<?= siteUrl("?page=5") ?>">5</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="<?= siteUrl() ?>" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <!-------------------------PAGINATION HTML CODE------------------------->
+
           </div>
         </div>
       </div>

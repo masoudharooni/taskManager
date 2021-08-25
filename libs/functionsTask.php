@@ -88,14 +88,19 @@ function getTasks($taskId = null)
         $sort = "ORDER BY created_at {$sortBy}";
     }
 
-    $taskCondition = null;
+    $pagination = $_GET['page'] ?? 1;
+    if (isset($pagination) and is_numeric($pagination) and !is_null($pagination)) {
+        $page = ($pagination - 1) * 7;
+        $limit = "LIMIT {$page},7";
+    }
 
+    $taskCondition = null;
     if (isset($taskId) and !is_null($taskId)) {
         $taskCondition = "AND id = ?";
     }
 
 
-    $sql = "SELECT id, user_id,folder_id, title , status, created_at FROM tasks WHERE user_id = ?$folderCondition $taskCondition $sort";
+    $sql = "SELECT id, user_id,folder_id, title , status, created_at FROM tasks WHERE user_id = ?$folderCondition $taskCondition $sort $limit";
     $stmt = $conn->prepare($sql);
 
 
@@ -209,8 +214,8 @@ function searchTask(string $char)
     $counter = 0;
     while ($stmt->fetch()) {
         $listOfName[$counter] = [
-            'taskName' => $title ,
-            'folderId' => $folder_id 
+            'taskName' => $title,
+            'folderId' => $folder_id
         ];
         $counter++;
     }

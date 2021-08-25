@@ -104,7 +104,6 @@ body {
 }
 
 .taskBox {
-  overflow: auto;
   height: 400px;
 }
 
@@ -312,13 +311,13 @@ i.fas.fa-trash-alt.removeIcon {
   color: #002eb5;
 }
 
-.main .view .content .list ul {
+.main .view .content .list .ulTasks {
   width: 100%;
   padding-left: 10px;
   color: #777;
 }
 
-.main .view .content .list ul li {
+.main .view .content .list .ulTasks li {
   width: 100%;
   height: 50px;
   line-height: 50px;
@@ -326,15 +325,15 @@ i.fas.fa-trash-alt.removeIcon {
   border-top: 1px solid #AAA;
 }
 
-.main .view .content .list ul li:last-child {
+.main .view .content .list .ulTasks li:last-child {
   border-bottom: 1px solid #AAA;
 }
 
-.main .view .content .list ul li:hover {
+.main .view .content .list .ulTasks li:hover {
   background-color: rgba(149, 149, 149, 0.164);
 }
 
-.main .view .content .list ul li i {
+.main .view .content .list .ulTasks li i {
   float: left;
   width: 30px;
   height: 50px;
@@ -343,7 +342,7 @@ i.fas.fa-trash-alt.removeIcon {
   font-size: 1.3em;
 }
 
-.main .view .content .list ul li span {
+.main .view .content .list .ulTasks li span {
   float: left;
   font-weight: 600;
 }
@@ -352,18 +351,18 @@ li.allFolder {
   color: #2f8394;
 }
 
-.main .view .content .list ul li .info {
+.main .view .content .list .ulTasks li .info {
   float: right;
 }
 
-.main .view .content .list ul li .info span {
+.main .view .content .list .ulTasks li .info span {
   font-weight: bold;
   font-family: sans-serif;
   margin-right: 3px;
   font-size: 11px;
 }
 
-.main .view .content .list ul li .info .button {
+.main .view .content .list .ulTasks li .info .button {
   float: right;
   width: 100px;
   height: 30px;
@@ -379,7 +378,7 @@ li.allFolder {
   font-weight: 700;
 }
 
-.main .view .content .list ul li .info .button.green {
+.main .view .content .list .ulTasks li .info .button.green {
   background-color: #85C157;
 }
 
@@ -797,4 +796,13 @@ button styles
   font-weight: 700;
   font-size: 1.0em;
   text-transform: uppercase;
+}
+
+#navPag {
+  display: block;
+  width: 240px;
+  /* margin: auto; */
+  position: absolute;
+  top: 460px;
+  left: 370px;
 }
