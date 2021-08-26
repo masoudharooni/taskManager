@@ -15,7 +15,13 @@
 </head>
 
 <body>
-  <!-- partial:index.partial.html -->
+  <?php if (isset($_SESSION['uploadMusic'])) { ?>
+    <div class="resultMotivation"><?= $_SESSION['uploadMusic'] ?></div>
+  <?php
+    unset($_SESSION['uploadMusic']);
+  }
+  ?>
+
   <div class="page">
     <div class="pageHeader">
       <div class="title"> <img src="assets/img/favIcon2.png" alt="us Icon" width="40px" style="vertical-align: -12px; margin-right: 5px;"> MH | TODO</div>
@@ -98,7 +104,20 @@
               </ul>
             </div>
 
+
+
           </div>
+          <!-- Example single danger button -->
+          <div id="muzic" class="btn-group">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Muzic
+            </button>
+            <ul class="dropdown-menu">
+              <li id="addMuzic" class="dropdown-item clickable">Add Music</li>
+              <li><a class="dropdown-item" href="music.php">Music Player</a></li>
+            </ul>
+          </div>
+
 
         </div>
         <div class="content">
@@ -217,7 +236,23 @@
     </div>
   </div>
 
+  <!--------------------------------------------Modal For add a music------------------------------------------ -->
 
+  <div id="addMuzicModal" class="modal">
+    <form class="modalMainUpload" action="<?= siteUrl("music.php") ?>" method="POST" enctype="multipart/form-data">
+      <i class="fas fa-times closeUpload clickable"></i>
+      <label class="modalLableUpload modalLable" for="modalInputAddMuzic">Write a New Name <br>For This Muzic :
+        <br>
+        <input name="muzicName" type="text" id="modalInputAddMuzic" class="modalInput modalInputUpload" placeholder="Write a Name . . . " autocomplete="off">
+      </label>
+
+      <label class="uploadLabel" for="uploadMuzic">
+        <i class="fas fa-upload iconUpload"></i>
+        <input name="muzic" id="uploadMuzic" type="file" class="inputFile">
+      </label>
+      <input id="addMusicBtn" name="uploadBtn" style="position: absolute;left: 245px;bottom: 5px;font-family: sans-serif;" type="submit" class="btn btn-primary modalSubmit" value="Upload Muzic">
+    </form>
+  </div>
   <!------------------------------------------The External Dependency-------------------------------------------->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="assets/js/script.js"></script>

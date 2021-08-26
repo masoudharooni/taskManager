@@ -36,5 +36,4 @@ $foldersCount = sizeof($folders);
  */
 $tasks = getTasks();
 
-
 include ROOT_PATH . "views/tpl-index.php";

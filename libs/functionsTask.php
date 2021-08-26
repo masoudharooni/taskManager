@@ -237,3 +237,88 @@ function countUnDoneTask(): int
         return $countOfUnDoneTask ?? 0;
     }
 }
+
+/**----------------------------------------------------------------------------UPLOAD MUSIC FUNCTION----------------------------------------------------------------------------*/
+function uploadMuzic(string $name, array $params)
+{
+    /**---------------------------------upload muzic--------------------------------- */
+    $result = [
+        'bool' => null,
+        'alert' => null
+    ];
+    $file = $params['muzic'];
+    $dir = "assets/audio";
+    $fileName = $file['name'];
+    $explode = explode(".", $fileName);
+    $extention = strtolower(end(($explode)));
+    $newFileName = md5(time() . $file['tmp_name']) . "." . $extention;
+    $path = $dir . "/" . $newFileName;
+    $allowFileToUploade = ["mp3", "wav"];
+    if (!in_array($extention, $allowFileToUploade)) {
+        $result['bool'] = false;
+        $result['alert'] = "File Not Allow!";
+        return $result;
+    }
+
+    if ($file['size'] > (15 * 1024 * 1024)) {
+        $result['bool'] = false;
+        $result['alert'] = "File Must less than 5 MB!";
+        return $result;
+    }
+    $from = $file['tmp_name'];
+    if (!move_uploaded_file($from, $path)) {
+        $result['bool'] = false;
+        $result['alert'] = "File Not Uploaded!";
+        return $result;
+    } else {
+
+        /**---------------------------------INSERT INTO DATA BASES--------------------------------- */
+        global $conn;
+        $currentUserId = getCurruntUserId();
+        $sql = "INSERT INTO muzics (user_id , name , path) VALUES (? , ? , ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("iss", $currentUserId, $name, $path);
+        if ($stmt->execute()) {
+            $result['bool'] = true;
+            $result['alert'] = "File Uploaded!";
+            return $result;
+        }
+    }
+}
+
+
+
+
+/**----------------------------------------------------------------------------Get Music----------------------------------------------------------------------------*/
+
+function getMusic()
+{
+    global $conn;
+    $currentUserId = getCurruntUserId();
+    $sql = "SELECT id, name, path, created_at  FROM muzics WHERE user_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $currentUserId);
+    $stmt->bind_result($id, $name, $path, $created_at);
+    $stmt->execute();
+    $counter = 0;
+
+    while ($stmt->fetch()) {
+        $musicData[$counter] = ["id" => $id, "name" => $name, "path" => $path, "createdAt" => $created_at];
+        $counter++;
+    }
+    return $musicData ?? $musicData['name'] = null;
+}
+
+/**----------------------------------------------------------------------------Delte Music----------------------------------------------------------------------------*/
+function deleteMusic(int $musicId): bool
+{
+    global $conn;
+    $currentUserId = getCurruntUserId();
+    $sql = "DELETE FROM muzics WHERE user_id = ? AND id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $currentUserId, $musicId);
+    if ($stmt->execute()) {
+        return true;
+    }
+    return false;
+}

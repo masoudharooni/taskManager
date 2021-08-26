@@ -66,3 +66,9 @@ if (isset($_POST['action']) and !empty($_POST['action']) and $_POST['action'] ==
 if (isset($_POST['action']) and !is_null($_POST['action']) and $_POST['action'] == "NoberOfUnDoneTasks") {
     echo countUnDoneTask();
 }
+
+/**----------------------------------AJAX FOR DELETE A MUSIC----------------------------------*/
+
+if (isset($_POST['action']) and !is_null($_POST['action']) and $_POST['action'] == "deleteMusic" and is_numeric($_POST['musicId'])) {
+    echo deleteMusic($_POST['musicId'], $_POST['musicPath']);
+}

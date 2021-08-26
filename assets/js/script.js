@@ -197,11 +197,25 @@ $(document).ready(function () {
         },
         success: function (respons) {
             if (respons == 0) {
-                $("div.numOfUnDoneTask").append(respons + " " + "<i style='font-size:40px;vertical-align:-8px;position:relative;left:7px' class='fas fa-grin-hearts'></i>").css("background-color" , "green");
-            }else{
-            $("div.numOfUnDoneTask").append(respons);
+                $("div.numOfUnDoneTask").append(respons + " " + "<i style='font-size:30px;vertical-align:-3px;position:relative;left:7px' class='fa fa-check'></i>").css({ "background-color": "green" });
+            } else {
+                $("div.numOfUnDoneTask").append(respons);
             }
             // alert(respons);
         }
+    });
+});
+
+
+/**
+*---------------------------------------------------------------Modal for Upload Muzic---------------------------------------------------------------
+*/
+
+$(document).ready(function () {
+    $("#addMuzic").click(function () {
+        $("#addMuzicModal").fadeIn(1000);
+    });
+    $("i.closeUpload").click(function () {
+        $("#addMuzicModal").fadeOut(1000);
     });
 });
