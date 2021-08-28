@@ -208,14 +208,14 @@ $(document).ready(function () {
 
 
 /**
-*---------------------------------------------------------------Modal for Upload Muzic---------------------------------------------------------------
+*---------------------------------------------------------------Modal for Upload Music---------------------------------------------------------------
 */
 
 $(document).ready(function () {
-    $("#addMuzic").click(function () {
-        $("#addMuzicModal").fadeIn(1000);
+    $("li#addMusic").click(function () {
+        $("#addMusicModal").fadeIn(1000);
     });
     $("i.closeUpload").click(function () {
-        $("#addMuzicModal").fadeOut(1000);
+        $("#addMusicModal").fadeOut(1000);
     });
 });

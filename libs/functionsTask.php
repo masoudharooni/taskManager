@@ -239,14 +239,14 @@ function countUnDoneTask(): int
 }
 
 /**----------------------------------------------------------------------------UPLOAD MUSIC FUNCTION----------------------------------------------------------------------------*/
-function uploadMuzic(string $name, array $params)
+function uploadMusic(string $name, array $params)
 {
-    /**---------------------------------upload muzic--------------------------------- */
+    /**---------------------------------upload music--------------------------------- */
     $result = [
         'bool' => null,
         'alert' => null
     ];
-    $file = $params['muzic'];
+    $file = $params['music'];
     $dir = "assets/audio";
     $fileName = $file['name'];
     $explode = explode(".", $fileName);
@@ -275,7 +275,7 @@ function uploadMuzic(string $name, array $params)
         /**---------------------------------INSERT INTO DATA BASES--------------------------------- */
         global $conn;
         $currentUserId = getCurruntUserId();
-        $sql = "INSERT INTO muzics (user_id , name , path) VALUES (? , ? , ?)";
+        $sql = "INSERT INTO musics (user_id , name , path) VALUES (? , ? , ?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("iss", $currentUserId, $name, $path);
         if ($stmt->execute()) {
@@ -295,7 +295,7 @@ function getMusic()
 {
     global $conn;
     $currentUserId = getCurruntUserId();
-    $sql = "SELECT id, name, path, created_at  FROM muzics WHERE user_id = ?";
+    $sql = "SELECT id, name, path, created_at  FROM musics WHERE user_id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $currentUserId);
     $stmt->bind_result($id, $name, $path, $created_at);
@@ -314,7 +314,7 @@ function deleteMusic(int $musicId): bool
 {
     global $conn;
     $currentUserId = getCurruntUserId();
-    $sql = "DELETE FROM muzics WHERE user_id = ? AND id = ?";
+    $sql = "DELETE FROM musics WHERE user_id = ? AND id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ii", $currentUserId, $musicId);
     if ($stmt->execute()) {

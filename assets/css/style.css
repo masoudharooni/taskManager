@@ -821,22 +821,22 @@ div.numOfUnDoneTask {
   font-size: 16px;
 }
 
-#muzic {
+#music {
   position: absolute;
-  right: 32%;
+  right: 327px;
   top: 14.5px;
   font-family: sans-serif;
 }
 
-#muzic ul {
+#music ul {
   background-color: #dc3545 !important;
 }
 
-#muzic .dropdown-item {
+#music .dropdown-item {
   background-color: #dc3545 !important;
 }
 
-#muzic .dropdown-item:hover {
+#music .dropdown-item:hover {
   background-color: #d32435 !important;
 }
 
@@ -907,3 +907,4 @@ div.numOfUnDoneTask {
   letter-spacing: 10px;
 }
 
+/* Ended:) */

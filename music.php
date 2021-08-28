@@ -1,13 +1,13 @@
 <?php
 include "bootstrap/init.php";
 /**
- * ------------------------------------------UPLOAD MUZIC------------------------------------------
+ * ------------------------------------------UPLOAD MUSIC------------------------------------------
  */
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $uploadMsg = null;
-    if (isset($_POST['muzicName']) and !empty($_POST['muzicName']) and is_string($_POST['muzicName']) and isset($_FILES['muzic']) and !empty($_FILES['muzic'])) {
-        $resultUpload = uploadMuzic($_POST['muzicName'], $_FILES);
+    if (isset($_POST['musicName']) and !empty($_POST['musicName']) and is_string($_POST['musicName']) and isset($_FILES['music']) and !empty($_FILES['music'])) {
+        $resultUpload = uploadMusic($_POST['musicName'], $_FILES);
         $_SESSION['uploadMusic'] = "Your Music Uploaded!";
         header("location:" . siteUrl());
     } else {

@@ -108,12 +108,12 @@
 
           </div>
           <!-- Example single danger button -->
-          <div id="muzic" class="btn-group">
+          <div id="music" class="btn-group">
             <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              Muzic
+              Music
             </button>
             <ul class="dropdown-menu">
-              <li id="addMuzic" class="dropdown-item clickable">Add Music</li>
+              <li id="addMusic" class="dropdown-item clickable">Add Music</li>
               <li><a class="dropdown-item" href="music.php" target="_blank">Music Player</a></li>
             </ul>
           </div>
@@ -238,19 +238,19 @@
 
   <!--------------------------------------------Modal For add a music------------------------------------------ -->
 
-  <div id="addMuzicModal" class="modal">
+  <div id="addMusicModal" class="modal">
     <form class="modalMainUpload" action="<?= siteUrl("music.php") ?>" method="POST" enctype="multipart/form-data">
       <i class="fas fa-times closeUpload clickable"></i>
-      <label class="modalLableUpload modalLable" for="modalInputAddMuzic">Write a New Name <br>For This Muzic :
+      <label class="modalLableUpload modalLable" for="modalInputAddMusic">Write a New Name <br>For This Music :
         <br>
-        <input name="muzicName" type="text" id="modalInputAddMuzic" class="modalInput modalInputUpload" placeholder="Write a Name . . . " autocomplete="off">
+        <input name="musicName" type="text" id="modalInputAddMusic" class="modalInput modalInputUpload" placeholder="Write a Name . . . " autocomplete="off">
       </label>
 
-      <label class="uploadLabel" for="uploadMuzic">
+      <label class="uploadLabel" for="uploadMusic">
         <i class="fas fa-upload iconUpload"></i>
-        <input name="muzic" id="uploadMuzic" type="file" class="inputFile">
+        <input name="music" id="uploadMusic" type="file" class="inputFile">
       </label>
-      <input id="addMusicBtn" name="uploadBtn" style="position: absolute;left: 245px;bottom: 5px;font-family: sans-serif;" type="submit" class="btn btn-primary modalSubmit" value="Upload Muzic">
+      <input id="addMusicBtn" name="uploadBtn" style="position: absolute;left: 245px;bottom: 5px;font-family: sans-serif;" type="submit" class="btn btn-primary modalSubmit" value="Upload Music">
     </form>
   </div>
   <!------------------------------------------The External Dependency-------------------------------------------->
