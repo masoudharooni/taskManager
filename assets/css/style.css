@@ -5,7 +5,7 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed; */
-  background-color: #4169E0;
+  background-color: #1634dd;
 }
 
 input {
@@ -906,3 +906,4 @@ div.numOfUnDoneTask {
   color: #fff;
   letter-spacing: 10px;
 }
+

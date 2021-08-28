@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $alert = $result['alert'];
             echo "<script>alert('$alert');</script>";
         } else {
-            massage("Register Successful! , Please Login <i style='font-size: 45px; vertical-align: -5px; margin: 0 15px; color: #bfffc4;' class='fas fa-hand-point-right'></i> <a href='$homeUrl'/auth.php>Login!</a>");
+            massage("Register Successful! , Please Login | <a href='$homeUrl'/auth.php>Login!</a>");
         }
     }
 }

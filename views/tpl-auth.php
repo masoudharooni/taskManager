@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>MH | Tdolist - AUTH Form</title>
+    <title>MH | TODO - AUTH Form</title>
+    <link rel="shortcut icon" href="assets/img/favIcon2.png" type="image/x-icon">
     <link rel="stylesheet" href="<?= siteUrl("assets/css/auth-style.css") ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -99,7 +100,7 @@
                         <div class="foot-lnk">
                             <a href="">MH | TODO</a>
                         </div>
-                    </form>   
+                    </form>
 
                     <form class="sign-up-htm" action="<?= siteUrl('auth.php?action=register') ?>" method="POST">
                         <div class="group">

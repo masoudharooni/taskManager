@@ -114,7 +114,7 @@
             </button>
             <ul class="dropdown-menu">
               <li id="addMuzic" class="dropdown-item clickable">Add Music</li>
-              <li><a class="dropdown-item" href="music.php">Music Player</a></li>
+              <li><a class="dropdown-item" href="music.php" target="_blank">Music Player</a></li>
             </ul>
           </div>
 
