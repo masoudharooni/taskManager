@@ -17,8 +17,8 @@
 
 # About Me
 
-My Full Name : Masoud Harooni
-My Age : 17
-My Programming Language : PHP
-My Gmail: masoudharooni50@gmail.com
-My telegram account: https://t.me/masoudharooni
+- My Full Name : Masoud Harooni
+- My Age : 17
+- My Programming Language : PHP
+- My Gmail: masoudharooni50@gmail.com
+- My telegram account: https://t.me/masoudharooni
