@@ -907,5 +907,11 @@ div.numOfUnDoneTask {
   letter-spacing: 10px;
 }
 
+#image {
+  position: absolute;
+  right: 425px;
+  top: 14.5px;
+  font-family: sans-serif;
+}
 
 /* Ended:) */

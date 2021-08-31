@@ -91,3 +91,10 @@ if (isset($_POST['action']) and !is_null($_POST['action']) and $_POST['action'] 
         unset($_SESSION['pass']);
     }
 }
+
+
+/**----------------------------------AJAX FOR DELETE AN IMAGE----------------------------------*/
+
+if (isset($_POST['action']) and !is_null($_POST['action']) and $_POST['action'] == "deleteImage" and is_numeric($_POST['imageId'])) {
+    echo deleteImage($_POST['imageId']);
+}

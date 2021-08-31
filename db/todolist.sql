@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 31, 2021 at 03:06 PM
+-- Generation Time: Sep 01, 2021 at 12:16 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -59,8 +59,24 @@ CREATE TABLE `images` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `path` varchar(1024) COLLATE utf8_persian_ci NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+  `size` int(10) UNSIGNED NOT NULL,
+  `type` varchar(10) COLLATE utf8_persian_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `name` varchar(200) COLLATE utf8_persian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`id`, `user_id`, `path`, `size`, `type`, `created_at`, `name`) VALUES
+(6, 33, 'assets/img/userImage/a9a699df7794590361c7cb2661c920e5.jpg', 10903, 'jpg', '2021-08-31 22:02:42', 'elephant'),
+(7, 33, 'assets/img/userImage/5abe871adbd45b2c7aa8d2975384be95.jpg', 6254, 'jpg', '2021-08-31 22:03:17', 'zebra'),
+(8, 33, 'assets/img/userImage/534a09333b09b5198e5a3c6426d87b5a.jpg', 997703, 'jpg', '2021-08-31 22:06:28', 'image one'),
+(9, 33, 'assets/img/userImage/fcdffa179b26588f3f5c5689f40db04c.jpg', 1478549, 'jpg', '2021-08-31 22:06:39', 'image two'),
+(10, 33, 'assets/img/userImage/f23c84ad2ea6969a62d4da7aa3e00a45.jpg', 1274546, 'jpg', '2021-08-31 22:07:06', 'image alone'),
+(11, 33, 'assets/img/userImage/25b2373ed9cb856efee12fa30c925d16.jpg', 1249782, 'jpg', '2021-08-31 22:07:20', 'image three'),
+(12, 33, 'assets/img/userImage/a04839ef727324fef3ee68d3932603f6.jpg', 115916, 'jpg', '2021-08-31 22:08:49', 'image name');
 
 -- --------------------------------------------------------
 
@@ -142,7 +158,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `creat_at`) VALUES
 (32, 'aliharooni', 'ali@gmail.com', '$2y$10$7CbUB32iocBHmxmgCXT47uKb/liZ2UJ.7E3rKNZQqNChBhPIy2.yS', '2021-08-23 23:27:35'),
-(33, 'masoudharooni', 'masoudharooni50@gmail.com', '$2y$10$hYrhH7NMMtEAF6dtRVeRa.T8wEIHecklZsz.OEdCLESObb1.iLV6G', '2021-08-23 23:59:48'),
+(33, 'masoudharooni', 'masoudharooni50@gmail.com', '$2y$10$sSrrNitmQIfQOu5HvVNfieoPJeLJGS0qDluLJPpXb0zfEBOjMdjVG', '2021-08-23 23:59:48'),
 (34, 'hamidharooni', 'hamid@gmail.com', '$2y$10$kyuhkJFrTtmf3JIPG20dqu1llEnPkw.y/DRv4mkZQaT1WXF71C4Fe', '2021-08-25 02:18:21'),
 (35, 'melinaharooni', 'melina@gmail.com', '$2y$10$PxK524WqsH4ojv7qMbHvYuGgXBmT7qpNboPg3Zm9Khec03qlU978O', '2021-08-27 03:07:29'),
 (36, 'abbas', 'abbas@gmail.com', '$2y$10$SM/hUzqp5MgKzWTxYnubxu6EPYNfxuOjz5VgLyLxfh3uvEvPpNoQW', '2021-08-27 03:27:35'),
@@ -201,7 +217,7 @@ ALTER TABLE `folders`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `musics`

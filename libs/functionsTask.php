@@ -238,6 +238,7 @@ function countUnDoneTask(): int
     }
 }
 
+
 /**----------------------------------------------------------------------------UPLOAD MUSIC FUNCTION----------------------------------------------------------------------------*/
 function uploadMusic(string $name, array $params)
 {
@@ -321,4 +322,88 @@ function deleteMusic(int $musicId): bool
         return true;
     }
     return false;
+}
+
+/**----------------------------------------------------------------------------Delte Music----------------------------------------------------------------------------*/
+function deleteImage(int $imageId): bool
+{
+    global $conn;
+    $currentUserId = getCurruntUserId();
+    $sql = "DELETE FROM images WHERE user_id = ? AND id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $currentUserId, $imageId);
+    if ($stmt->execute()) {
+        return true;
+    }
+    return false;
+}
+
+
+/**----------------------------------------------------------------------------UPLOAD MUSIC FUNCTION----------------------------------------------------------------------------*/
+
+function uploadImage(array $params)
+{
+    $imageMsg = null;
+    $file = $params['image'];
+    $dir = "assets/img/userImage";
+    $fileName = $file['name'];
+    $explode = explode(".", $fileName);
+    $extention = strtolower(end(($explode)));
+    $newFileName = md5(time() . $file['tmp_name']) . "." . $extention;
+    $path = $dir . "/" . $newFileName;
+    $allowFileToUploade = ["png", "gif", "jpeg", "jpg"];
+    if (!in_array($extention, $allowFileToUploade)) {
+        return false;
+    }
+
+    if ($file['size'] > (2 * 1024 * 1024)) {
+        return false;
+    }
+    $from = $file['tmp_name'];
+    if (move_uploaded_file($from, $path)) {
+        $result = [
+            'size' => $file['size'],
+            'type' => $extention,
+            'path' => $path
+        ];
+        return $result;
+    }
+    return null;
+}
+
+
+
+function imageToDb(string $name, array $params)
+{
+    global $conn;
+    $currentUserId = getCurruntUserId();
+    $sql = "INSERT INTO images (user_id , name, path , size , type) VALUES (? , ? , ? , ? , ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("issis", $currentUserId, $name, $params['path'], $params['size'], $params['type']);
+    if ($stmt->execute()) {
+        return true;
+    }
+    return false;
+}
+
+
+/**
+ * ----------------------------------Get Image From DataBase----------------------------------
+ */
+function getImage()
+{
+    global $conn;
+    $currentUserId = getCurruntUserId();
+    $sql = "SELECT id, name, path, size , type, created_at  FROM images WHERE user_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $currentUserId);
+    $stmt->bind_result($id, $name, $path, $size, $type, $created_at);
+    $stmt->execute();
+    $counter = 0;
+
+    while ($stmt->fetch()) {
+        $imageData[$counter] = ["id" => $id, "name" => $name, "path" => $path, "size" => $size, "type" => $type, "createdAt" => $created_at];
+        $counter++;
+    }
+    return $imageData ?? $imageData['name'] = null;
 }

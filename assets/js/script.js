@@ -219,3 +219,15 @@ $(document).ready(function () {
         $("#addMusicModal").fadeOut(1000);
     });
 });
+
+/**
+ *---------------------------------------------------------------Modal for Upload image---------------------------------------------------------------
+ */
+ $(document).ready(function () {
+     $("li#addImage").click(function () {
+         $("#addImageModal").fadeIn(1000);
+     });
+     $("i.closeUpload").click(function () {
+         $("#addImageModal").fadeOut(1000);
+     });
+ });

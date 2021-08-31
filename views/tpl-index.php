@@ -22,6 +22,13 @@
   }
   ?>
 
+  <?php if (isset($_SESSION['uploadImage'])) { ?>
+    <div class="resultMotivation"><?= $_SESSION['uploadImage'] ?></div>
+  <?php
+    unset($_SESSION['uploadImage']);
+  }
+  ?>
+
   <div class="page">
     <div class="pageHeader">
       <div class="title"> <img src="assets/img/favIcon2.png" alt="us Icon" width="40px" style="vertical-align: -12px; margin-right: 5px;"> MH | TODO</div>
@@ -107,7 +114,7 @@
 
 
           </div>
-          <!-- Example single danger button -->
+          <!-- Drow Down For Music -->
           <div id="music" class="btn-group">
             <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
               Music
@@ -118,6 +125,17 @@
             </ul>
           </div>
 
+          <!-- Drow Down For Image -->
+          <div id="image" class="btn-group">
+            <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Image
+            </button>
+            <ul class="dropdown-menu">
+              <li id="addImage" class="dropdown-item clickable">Add Image</li>
+              <li><a class="dropdown-item" href="gallery.php" target="_blank">Gallery</a></li>
+            </ul>
+          </div>
+          <!-- Drow Down For Image -->
 
         </div>
         <div class="content">
@@ -253,6 +271,25 @@
       <input id="addMusicBtn" name="uploadBtn" style="position: absolute;left: 41%;bottom: 5px;font-family: sans-serif;" type="submit" class="btn btn-primary modalSubmit" value="Upload Music">
     </form>
   </div>
+
+  <!--------------------------------------------Modal For add an image------------------------------------------ -->
+
+  <div id="addImageModal" class="modal">
+    <form class="modalMainUpload" action="<?= siteUrl("gallery.php") ?>" method="POST" enctype="multipart/form-data">
+      <i class="fas fa-times closeUpload clickable"></i>
+      <label class="modalLableUpload modalLable" for="modalInputAddImage">Write a Name <br>For This Image :
+        <br>
+        <input name="imageName" type="text" id="modalInputAddImage" class="modalInput modalInputUpload" placeholder="Write a Name . . . " autocomplete="off">
+      </label>
+
+      <label class="uploadLabel" for="uploadImage">
+        <i class="fas fa-upload iconUpload"></i>
+        <input name="image" id="uploadImage" type="file" class="inputFile">
+      </label>
+      <input id="addImageBtn" name="uploadImageBtn" style="position: absolute;left: 41%;bottom: 5px;font-family: sans-serif;" type="submit" class="btn btn-primary modalSubmit" value="Upload Image">
+    </form>
+  </div>
+
   <!------------------------------------------The External Dependency-------------------------------------------->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="assets/js/script.js"></script>

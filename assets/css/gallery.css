@@ -1,0 +1,62 @@
+body {
+    background-color: rgb(0, 71, 129);
+}
+
+#container {
+    width: 70%;
+    margin: auto;
+    background-color: rgb(199, 233, 245);
+    text-align: center;
+    border-radius: 10px;
+}
+
+.element {
+    /* background-color: red; */
+    width: 30%;
+    display: inline-block;
+    margin: 10px;
+}
+
+.element img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.element span {
+    background-color: red;
+    display: block;
+    width: 100%;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 5px 0;
+    position: relative;
+    bottom: 5px;
+    border-radius: 0 0 10px 10px;
+}
+
+.clickable:hover {
+    opacity: .6;
+    cursor: pointer;
+}
+
+p.caption {
+    font-family: sans-serif;
+    text-align: left;
+    line-height: 45px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+p.caption span {
+    color: red;
+    margin-right: 20px;
+}
+
+.aler {
+    line-height: 50px;
+    font-family: sans-serif;
+    font-size: 25px;
+    letter-spacing: 5px;
+}
