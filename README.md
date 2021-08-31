@@ -13,7 +13,7 @@
 - Add music to playlist
 - Show music in playlist
 - Delete Music
-
+- Recovery Password
 
 # About Me
 
