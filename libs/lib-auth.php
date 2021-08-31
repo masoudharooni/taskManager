@@ -171,3 +171,72 @@ function register($params)
     $result['alert'] = "Not Registered!";
     return $result;
 }
+
+/**-----------------------------------------is there the email-----------------------------------------*/
+
+function isThereEmail(string $email): bool
+{
+    global $conn;
+    $sql = "SELECT id FROM users WHERE email LIKE ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('s', $email);
+    $stmt->bind_result($id);
+    $stmt->execute();
+    $stmt->fetch();
+    if (!is_null($id) and is_numeric($id)) {
+        return true;
+    }
+    return false;
+}
+
+/**-----------------------------------------Send Code To User Email For Pass Recovery-----------------------------------------*/
+
+function sendEmail(string $email)
+{
+    $subject = "Password Recovery";
+    $code = rand(100000, 999999);
+    $massage = "Enter This Code Inside input of Code in the website ->{$code}";
+    $send = mail($email, $subject, $massage);
+    if ($send) {
+        $sendMassage = "email sended!";
+        $result = [
+            'massage' => $sendMassage,
+            'code'    => $code
+        ];
+        return $result;
+    }
+    $sendMassage = "email not sended!";
+    $result = [
+        'massage' => $sendMassage,
+        'code'    => null
+    ];
+    return $result;
+}
+/**-----------------------------------------Update Password Recovery-----------------------------------------*/
+
+function updatePass(string $email, string $password)
+{
+    global $conn;
+    $passwordHash = password_hash($password, PASSWORD_BCRYPT);
+    $sql = "UPDATE users SET password = ? WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $passwordHash, $email);
+    if ($stmt->execute()) {
+        return true;
+    }
+    return false;
+}
+/**-----------------------------------------Allow Password Recovery-----------------------------------------*/
+function allowPass(string $password): bool
+{
+    if (strlen($password) <= 8) {
+        return false;
+    } elseif (!preg_match("#[0-9]+#", $password)) {
+        return false;
+    } elseif (!preg_match("#[A-Z]+#", $password)) {
+        return false;
+    } elseif (!preg_match("#[a-z]+#", $password)) {
+        return false;
+    }
+    return true;
+}

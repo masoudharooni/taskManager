@@ -72,3 +72,22 @@ if (isset($_POST['action']) and !is_null($_POST['action']) and $_POST['action'] 
 if (isset($_POST['action']) and !is_null($_POST['action']) and $_POST['action'] == "deleteMusic" and is_numeric($_POST['musicId'])) {
     echo deleteMusic($_POST['musicId'], $_POST['musicPath']);
 }
+
+/**----------------------------------Check an Email For Pass Recovery----------------------------------*/
+
+if (isset($_POST['action']) and !is_null($_POST['action']) and $_POST['action'] == "codeRev" and is_numeric($_POST['code'])) {
+    if (isset($_SESSION['email']) and isset($_SESSION['codeEmail']) and isset($_SESSION['pass']) and !empty($_SESSION['pass']) and !empty($_SESSION['email']) and !empty($_SESSION['codeEmail'])) {
+        if ($_POST['code'] == $_SESSION['codeEmail']) {
+            if (updatePass($_SESSION['email'], $_SESSION['pass'])) {
+                echo "Your Password Updated , Please Login.";
+            } else {
+                echo "Your Password Not Updated , Please Try Again.";
+            }
+        } else {
+            echo "This Code Not True!";
+        }
+        unset($_SESSION['eamil']);
+        unset($_SESSION['codeEamil']);
+        unset($_SESSION['pass']);
+    }
+}

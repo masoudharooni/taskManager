@@ -122,7 +122,7 @@
         </div>
         <div class="content">
           <div class="list">
-            <div class="title">List Of Taks</div>
+            <div class="title">List Of Tasks</div>
 
             <!-------------------------------------------------Show Tasks------------------------------------------------->
             <div class="taskBox">
@@ -250,7 +250,7 @@
         <i class="fas fa-upload iconUpload"></i>
         <input name="music" id="uploadMusic" type="file" class="inputFile">
       </label>
-      <input id="addMusicBtn" name="uploadBtn" style="position: absolute;left: 245px;bottom: 5px;font-family: sans-serif;" type="submit" class="btn btn-primary modalSubmit" value="Upload Music">
+      <input id="addMusicBtn" name="uploadBtn" style="position: absolute;left: 41%;bottom: 5px;font-family: sans-serif;" type="submit" class="btn btn-primary modalSubmit" value="Upload Music">
     </form>
   </div>
   <!------------------------------------------The External Dependency-------------------------------------------->

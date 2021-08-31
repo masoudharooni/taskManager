@@ -285,3 +285,72 @@ body {
     cursor: pointer;
     opacity: 0.7;
 }
+
+/*-------------------------------------------------PASSWORD RECOVERY STYLES-------------------------------------------------*/
+
+#modal {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    /* background-color: rgb(3 3 3 / 78%); */
+    display: none;
+}
+
+#modalMain {
+    width: 550px;
+    height: 350px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 100px auto;
+}
+
+.closeIcon {
+    color: red;
+    position: relative;
+    top: 15px;
+    left: 15px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.clickable:hover {
+    opacity: .6;
+}
+
+.modalPass {
+    margin-top: 0px;
+}
+
+.container {
+    margin-top: 0px;
+    padding: 0 80px;
+}
+
+.descriptionModal {
+    padding: 10px 30px;
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.modalCode {
+    margin-top: 20px;
+}
+
+.modalPass {
+    margin-top: 20px;
+}
+
+.recoveryPass {
+    color: #fff;
+    padding-bottom: 7px;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+    font-family: sans-serif;
+    font-size: 30px;
+    width: 50%;
+    margin: 20px auto;
+}
