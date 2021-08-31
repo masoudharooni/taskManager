@@ -14,6 +14,9 @@
 - Show music in playlist
 - Delete Music
 - Recovery Password
+- Add an image
+- Delete image
+- Show images in gallery
 
 # About Me
 
