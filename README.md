@@ -17,6 +17,8 @@
 - Add an image
 - Delete image
 - Show images in gallery
+- add motivational text
+- delete motivational text
 
 # About Me
 
