@@ -223,11 +223,45 @@ $(document).ready(function () {
 /**
  *---------------------------------------------------------------Modal for Upload image---------------------------------------------------------------
  */
- $(document).ready(function () {
-     $("li#addImage").click(function () {
-         $("#addImageModal").fadeIn(1000);
-     });
-     $("i.closeUpload").click(function () {
-         $("#addImageModal").fadeOut(1000);
-     });
- });
+$(document).ready(function () {
+    $("li#addImage").click(function () {
+        $("#addImageModal").fadeIn(1000);
+    });
+    $("i.closeUpload").click(function () {
+        $("#addImageModal").fadeOut(1000);
+    });
+});
+
+
+/**
+ *---------------------------------------------------------------Modal for Upload image---------------------------------------------------------------
+ */
+
+$(document).ready(function () {
+    $("li#addText").click(function () {
+        $("#addTextModal").fadeIn(1000);
+    });
+
+    $("i.closeTextModal").click(function () {
+        $("#addTextModal").fadeOut(1000);
+    });
+
+    var writer;
+    var text;
+    $("input#textBtn").click(function () {
+        text = $("#exampleFormControlTextarea1").val();
+        writer = $("input#exampleFormControlInput1").val();
+        $.ajax({
+            url: "process/ajaxHandler.php",
+            method: "post",
+            data: {
+                action: "addText",
+                writer: writer,
+                text: text
+            },
+            success: function (respons) {
+                alert(respons);
+            }
+        });
+    });
+});

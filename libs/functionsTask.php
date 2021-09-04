@@ -407,3 +407,58 @@ function getImage()
     }
     return $imageData ?? $imageData['name'] = null;
 }
+
+
+/**
+ * ----------------------------------insert motivational text into DataBase----------------------------------
+ */
+
+function addText(string $writer, string $text): bool
+{
+    global $conn;
+    $currentUserId = getCurruntUserId();
+    $sql = "INSERT INTO texts (user_id, writer , text ) VALUES (? , ? , ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("iss", $currentUserId, $writer, $text);
+    if ($stmt->execute()) {
+        return true;
+    }
+    return false;
+}
+
+/**
+ * ----------------------------------Get Motivational Text From DataBase----------------------------------
+ */
+
+function getTexts()
+{
+    global $conn;
+    $currentUserId = getCurruntUserId();
+    $sql = "SELECT id, writer, text , created_at  FROM texts WHERE user_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $currentUserId);
+    $stmt->bind_result($id, $writer, $text, $created_at);
+    $stmt->execute();
+    $counter = 0;
+
+    while ($stmt->fetch()) {
+        $textsData[$counter] = ["id" => $id, "writer" => $writer, "text" => $text, "created_at" => $created_at];
+        $counter++;
+    }
+    return $textsData ?? $replace = [null];
+}
+
+/**
+ * ----------------------------------Delete Motivational Text----------------------------------
+ */
+function deleteText(int $textId): bool
+{
+    global $conn;
+    $sql = "DELETE FROM texts WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $textId);
+    if ($stmt->execute()) {
+        return true;
+    }
+    return false;
+}

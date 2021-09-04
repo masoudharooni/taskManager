@@ -30,4 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // get image
 $images = getImage();
 
+// get text
+$texts = getTexts();
+// echo "<pre>";
+// print_r($texts);
+// echo "</pre>";
+// die;
+
 include "views/tpl-gallery.php";

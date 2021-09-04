@@ -98,3 +98,32 @@ if (isset($_POST['action']) and !is_null($_POST['action']) and $_POST['action'] 
 if (isset($_POST['action']) and !is_null($_POST['action']) and $_POST['action'] == "deleteImage" and is_numeric($_POST['imageId'])) {
     echo deleteImage($_POST['imageId']);
 }
+
+/**----------------------------------AJAX FOR Add Text----------------------------------*/
+if (isset($_POST['action']) and !is_null($_POST['action']) and $_POST['action'] == 'addText') {
+    if (isset($_POST['writer']) and !is_null($_POST['writer']) and is_string($_POST['writer'])) {
+        if (isset($_POST['text']) and !is_null($_POST['text']) and is_string($_POST['text'])) {
+            if (addText($_POST['writer'], $_POST['text'])) {
+                echo "Your Motivational Text Added!";
+            } else {
+                echo "Your Motivational Text Not Added!";
+            }
+        } else {
+            echo "Please Fill in the Motivational Text!";
+        }
+    } else {
+        echo "Please Fill in the Writer Name This Motivational Text!";
+    }
+}
+
+/**----------------------------------AJAX FOR Add Text----------------------------------*/
+if (isset($_POST['action']) and !is_null($_POST['action']) and $_POST['action'] == 'deleteText') {
+    if (isset($_POST['textId']) and !is_null($_POST['textId']) and is_numeric($_POST['textId'])) {
+        if (deleteText($_POST['textId'])) {
+            echo "Deleted!";
+        } else {
+            echo "Not Deleted!";
+        }
+        // var_dump($_POST);
+    }
+}

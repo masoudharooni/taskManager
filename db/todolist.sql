@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 01, 2021 at 12:16 AM
+-- Generation Time: Sep 04, 2021 at 05:20 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -70,13 +70,7 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `user_id`, `path`, `size`, `type`, `created_at`, `name`) VALUES
-(6, 33, 'assets/img/userImage/a9a699df7794590361c7cb2661c920e5.jpg', 10903, 'jpg', '2021-08-31 22:02:42', 'elephant'),
-(7, 33, 'assets/img/userImage/5abe871adbd45b2c7aa8d2975384be95.jpg', 6254, 'jpg', '2021-08-31 22:03:17', 'zebra'),
-(8, 33, 'assets/img/userImage/534a09333b09b5198e5a3c6426d87b5a.jpg', 997703, 'jpg', '2021-08-31 22:06:28', 'image one'),
-(9, 33, 'assets/img/userImage/fcdffa179b26588f3f5c5689f40db04c.jpg', 1478549, 'jpg', '2021-08-31 22:06:39', 'image two'),
-(10, 33, 'assets/img/userImage/f23c84ad2ea6969a62d4da7aa3e00a45.jpg', 1274546, 'jpg', '2021-08-31 22:07:06', 'image alone'),
-(11, 33, 'assets/img/userImage/25b2373ed9cb856efee12fa30c925d16.jpg', 1249782, 'jpg', '2021-08-31 22:07:20', 'image three'),
-(12, 33, 'assets/img/userImage/a04839ef727324fef3ee68d3932603f6.jpg', 115916, 'jpg', '2021-08-31 22:08:49', 'image name');
+(13, 33, 'assets/img/userImage/dac085c173733fa2da3901c11cc8ab6d.jpg', 11445, 'jpg', '2021-09-04 09:24:38', 'MH | TODO');
 
 -- --------------------------------------------------------
 
@@ -141,6 +135,28 @@ INSERT INTO `tasks` (`id`, `user_id`, `folder_id`, `title`, `status`, `created_a
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `texts`
+--
+
+CREATE TABLE `texts` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `writer` varchar(128) CHARACTER SET utf8 NOT NULL,
+  `text` text CHARACTER SET utf8 NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `texts`
+--
+
+INSERT INTO `texts` (`id`, `user_id`, `writer`, `text`, `created_at`) VALUES
+(1, 33, 'masoudharooni', 'Don\'t Giveup', '2021-09-04 12:49:27'),
+(2, 1, 'brayanTerisy', 'Do More', '2021-09-04 13:47:21');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -196,6 +212,12 @@ ALTER TABLE `tasks`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `texts`
+--
+ALTER TABLE `texts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -217,7 +239,7 @@ ALTER TABLE `folders`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `musics`
@@ -230,6 +252,12 @@ ALTER TABLE `musics`
 --
 ALTER TABLE `tasks`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+
+--
+-- AUTO_INCREMENT for table `texts`
+--
+ALTER TABLE `texts`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`

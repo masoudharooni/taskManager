@@ -914,4 +914,48 @@ div.numOfUnDoneTask {
   font-family: sans-serif;
 }
 
+.modalTextMain {
+  background-color: #fff;
+  width: 500px;
+  height: 280px;
+  margin: 100px auto;
+  position: relative;
+  border-radius: 15px;
+}
+
+i.fas.fa-times.closeTextModal.clickable {
+  color: red;
+  font-size: 22px;
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
+.textConten {
+  margin: 20px;
+  font-family: sans-serif;
+}
+
+input#exampleFormControlInput1 {
+  margin-top: 5px;
+}
+
+textarea#exampleFormControlTextarea1 {
+  margin-top: 5px;
+}
+
+.textBtn {
+  margin: 0 20px;
+  border: none;
+  outline: none;
+  background-color: #ff5722;
+  padding: 7px;
+  color: #fff;
+  width: 300px;
+  margin: auto;
+  display: block;
+  border-radius: 10px;
+  font-size: 19px;
+}
+
 /* Ended:) */

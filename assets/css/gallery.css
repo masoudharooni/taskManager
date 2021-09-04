@@ -60,3 +60,42 @@ p.caption span {
     font-size: 25px;
     letter-spacing: 5px;
 }
+
+div#text {
+    /* background-color: aliceblue; */
+    font-size: 24px;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 0 40px 40px 10px;
+    border-radius: 15px 15px 0 0;
+    border-bottom: 5px solid blue;
+}
+
+#text p.description {
+    padding-top: 5px;
+}
+
+.textSlider {
+    width: 60%;
+    /* background-color: red; */
+    margin: auto;
+}
+
+.text {
+    font-size: 19px;
+}
+
+.writer {
+    font-size: 14px;
+}
+
+.deleteText {
+    width: 50%;
+    display: block;
+    margin: auto;
+    border: none;
+    background-color: red;
+    color: #fff;
+    padding: 7px 0;
+    border-radius: 10px;
+}

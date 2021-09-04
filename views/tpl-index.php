@@ -128,11 +128,12 @@
           <!-- Drow Down For Image -->
           <div id="image" class="btn-group">
             <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              Image
+              Motivational
             </button>
             <ul class="dropdown-menu">
               <li id="addImage" class="dropdown-item clickable">Add Image</li>
-              <li><a class="dropdown-item" href="gallery.php" target="_blank">Gallery</a></li>
+              <li id="addText" class="dropdown-item clickable">Add Text</li>
+              <li><a class="dropdown-item" href="gallery.php" target="_blank">Page</a></li>
             </ul>
           </div>
           <!-- Drow Down For Image -->
@@ -288,6 +289,28 @@
       </label>
       <input id="addImageBtn" name="uploadImageBtn" style="position: absolute;left: 41%;bottom: 5px;font-family: sans-serif;" type="submit" class="btn btn-primary modalSubmit" value="Upload Image">
     </form>
+  </div>
+
+  <!--------------------------------------------Modal For add a text------------------------------------------ -->
+
+  <div id="addTextModal" class="modal">
+    <div class="modalTextMain">
+      <i class="fas fa-times closeTextModal clickable"></i>
+      <div class="textConten">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Writer</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Writer This Text . . .">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Motivational Text</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+      </div>
+
+      <input type="submit" id="textBtn" class="textBtn clickable" value="Submit">
+
+    </div>
   </div>
 
   <!------------------------------------------The External Dependency-------------------------------------------->
